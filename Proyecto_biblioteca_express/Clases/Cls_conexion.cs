@@ -9,7 +9,7 @@ namespace Proyecto_biblioteca_express
 {
     class Cls_conexion
     {
-        public static string connectionString = "datasource=127.0.0.1;port=3306;username=Jaime;password=123;database=bd_biblioteca_express;";
+        public static string connectionString = "datasource=127.0.0.1;port=3306;username=root;database=bd_biblioteca_express;";
 
         public MySqlConnection databaseConnection = new MySqlConnection(connectionString);
     }

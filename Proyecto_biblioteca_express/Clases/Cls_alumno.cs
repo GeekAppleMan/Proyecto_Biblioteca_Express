@@ -8,5 +8,7 @@ namespace Proyecto_biblioteca_express
 {
     class Cls_alumno
     {
+
+        
     }
 }
