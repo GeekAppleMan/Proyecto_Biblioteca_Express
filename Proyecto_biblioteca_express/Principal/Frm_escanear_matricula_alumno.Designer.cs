@@ -89,6 +89,7 @@ namespace Proyecto_biblioteca_express
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_escanear_matricula_alumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Escanear matricula del alumno";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_escanear_matricula_alumno_FormClosed);
             this.ResumeLayout(false);
