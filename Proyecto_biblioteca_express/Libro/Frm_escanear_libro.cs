@@ -21,5 +21,20 @@ namespace Proyecto_biblioteca_express
         {
             Cls_libro.codigo_libro = 17340346;
         }
+        public void Scan()
+        {
+            int codig = Convert.ToInt32(txtCodigo.Text);
+            Cls_libro obj_libro = new Cls_libro();
+
+            obj_libro.verif_Libro(codig, this);
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Scan();
+            }
+        }
     }
 }
