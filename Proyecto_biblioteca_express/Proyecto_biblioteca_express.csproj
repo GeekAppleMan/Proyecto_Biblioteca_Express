@@ -114,6 +114,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Alumno\Frm_inf_alumno.resx">
+      <DependentUpon>Frm_inf_alumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Libro\Frm_escanear_libro.resx">
       <DependentUpon>Frm_escanear_libro.cs</DependentUpon>
     </EmbeddedResource>
