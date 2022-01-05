@@ -236,6 +236,7 @@ namespace Proyecto_biblioteca_express
             this.btn_agregar.TabIndex = 0;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // btn_registrar_pedido
             // 
@@ -250,6 +251,7 @@ namespace Proyecto_biblioteca_express
             this.btn_registrar_pedido.TabIndex = 1;
             this.btn_registrar_pedido.Text = "Registrar pedido";
             this.btn_registrar_pedido.UseVisualStyleBackColor = false;
+            this.btn_registrar_pedido.Click += new System.EventHandler(this.btn_registrar_pedido_Click);
             // 
             // panel_pedidos
             // 
@@ -356,6 +358,7 @@ namespace Proyecto_biblioteca_express
             this.dgv_pedidos.RowTemplate.Height = 24;
             this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
             this.dgv_pedidos.TabIndex = 1;
+            this.dgv_pedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pedidos_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -437,7 +440,6 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
         private System.Windows.Forms.DataGridViewImageColumn Renovar;
         private System.Windows.Forms.DataGridViewImageColumn Devolver;
-        private System.Windows.Forms.DataGridView dgv_pedidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -446,5 +448,6 @@ namespace Proyecto_biblioteca_express
         public System.Windows.Forms.Label lbl_carrera;
         public System.Windows.Forms.Label lbl_apellidos;
         public System.Windows.Forms.Label lbl_nombres;
+        public System.Windows.Forms.DataGridView dgv_pedidos;
     }
 }
