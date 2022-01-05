@@ -44,9 +44,8 @@ namespace Proyecto_biblioteca_express
             this.panel_botones = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_agregar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_registrar_pedido = new System.Windows.Forms.Button();
             this.panel_pedidos = new System.Windows.Forms.Panel();
-            this.dgv_pedidos = new System.Windows.Forms.DataGridView();
             this.gbx_prestamos = new System.Windows.Forms.GroupBox();
             this.dgv_prestamos = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +54,11 @@ namespace Proyecto_biblioteca_express
             this.Fecha_devolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Renovar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Devolver = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgv_pedidos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_datos_alumno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).BeginInit();
             this.panel_prestamos_pedidos_botones.SuspendLayout();
@@ -62,9 +66,9 @@ namespace Proyecto_biblioteca_express
             this.panel_botones.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_pedidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).BeginInit();
             this.gbx_prestamos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_datos_alumno
@@ -210,7 +214,7 @@ namespace Proyecto_biblioteca_express
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btn_agregar, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_cancelar, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btn_registrar_pedido, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -225,6 +229,7 @@ namespace Proyecto_biblioteca_express
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_agregar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregar.Location = new System.Drawing.Point(3, 3);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(424, 62);
@@ -232,18 +237,19 @@ namespace Proyecto_biblioteca_express
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = false;
             // 
-            // btn_cancelar
+            // btn_registrar_pedido
             // 
-            this.btn_cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btn_registrar_pedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Location = new System.Drawing.Point(433, 3);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(424, 62);
-            this.btn_cancelar.TabIndex = 1;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_registrar_pedido.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_registrar_pedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_registrar_pedido.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_registrar_pedido.Location = new System.Drawing.Point(433, 3);
+            this.btn_registrar_pedido.Name = "btn_registrar_pedido";
+            this.btn_registrar_pedido.Size = new System.Drawing.Size(424, 62);
+            this.btn_registrar_pedido.TabIndex = 1;
+            this.btn_registrar_pedido.Text = "Registrar pedido";
+            this.btn_registrar_pedido.UseVisualStyleBackColor = false;
             // 
             // panel_pedidos
             // 
@@ -253,17 +259,6 @@ namespace Proyecto_biblioteca_express
             this.panel_pedidos.Name = "panel_pedidos";
             this.panel_pedidos.Size = new System.Drawing.Size(860, 186);
             this.panel_pedidos.TabIndex = 0;
-            // 
-            // dgv_pedidos
-            // 
-            this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_pedidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_pedidos.Location = new System.Drawing.Point(0, 0);
-            this.dgv_pedidos.Name = "dgv_pedidos";
-            this.dgv_pedidos.RowHeadersWidth = 51;
-            this.dgv_pedidos.RowTemplate.Height = 24;
-            this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
-            this.dgv_pedidos.TabIndex = 0;
             // 
             // gbx_prestamos
             // 
@@ -278,6 +273,9 @@ namespace Proyecto_biblioteca_express
             // 
             // dgv_prestamos
             // 
+            this.dgv_prestamos.AllowUserToAddRows = false;
+            this.dgv_prestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_prestamos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_prestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_prestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -289,6 +287,8 @@ namespace Proyecto_biblioteca_express
             this.dgv_prestamos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_prestamos.Location = new System.Drawing.Point(3, 18);
             this.dgv_prestamos.Name = "dgv_prestamos";
+            this.dgv_prestamos.ReadOnly = true;
+            this.dgv_prestamos.RowHeadersVisible = false;
             this.dgv_prestamos.RowHeadersWidth = 51;
             this.dgv_prestamos.RowTemplate.Height = 24;
             this.dgv_prestamos.Size = new System.Drawing.Size(860, 197);
@@ -299,42 +299,91 @@ namespace Proyecto_biblioteca_express
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 125;
+            this.Codigo.ReadOnly = true;
             // 
             // Libro
             // 
             this.Libro.HeaderText = "Libro";
             this.Libro.MinimumWidth = 6;
             this.Libro.Name = "Libro";
-            this.Libro.Width = 125;
+            this.Libro.ReadOnly = true;
             // 
             // Fecha_salida
             // 
             this.Fecha_salida.HeaderText = "Fecha de salida";
             this.Fecha_salida.MinimumWidth = 6;
             this.Fecha_salida.Name = "Fecha_salida";
-            this.Fecha_salida.Width = 125;
+            this.Fecha_salida.ReadOnly = true;
             // 
             // Fecha_devolucion
             // 
             this.Fecha_devolucion.HeaderText = "Fecha de devolucion";
             this.Fecha_devolucion.MinimumWidth = 6;
             this.Fecha_devolucion.Name = "Fecha_devolucion";
-            this.Fecha_devolucion.Width = 125;
+            this.Fecha_devolucion.ReadOnly = true;
             // 
             // Renovar
             // 
             this.Renovar.HeaderText = "Renovar";
             this.Renovar.MinimumWidth = 6;
             this.Renovar.Name = "Renovar";
-            this.Renovar.Width = 125;
+            this.Renovar.ReadOnly = true;
             // 
             // Devolver
             // 
             this.Devolver.HeaderText = "Devolver";
             this.Devolver.MinimumWidth = 6;
             this.Devolver.Name = "Devolver";
-            this.Devolver.Width = 125;
+            this.Devolver.ReadOnly = true;
+            // 
+            // dgv_pedidos
+            // 
+            this.dgv_pedidos.AllowUserToAddRows = false;
+            this.dgv_pedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_pedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_pedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewImageColumn2});
+            this.dgv_pedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_pedidos.Location = new System.Drawing.Point(0, 0);
+            this.dgv_pedidos.Name = "dgv_pedidos";
+            this.dgv_pedidos.ReadOnly = true;
+            this.dgv_pedidos.RowHeadersVisible = false;
+            this.dgv_pedidos.RowHeadersWidth = 51;
+            this.dgv_pedidos.RowTemplate.Height = 24;
+            this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
+            this.dgv_pedidos.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Libro";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Fecha de devolucion";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
             // 
             // Frm_inf_alumno
             // 
@@ -346,6 +395,7 @@ namespace Proyecto_biblioteca_express
             this.Controls.Add(this.panel_datos_alumno);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_inf_alumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informacion del alumno";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_inf_alumno_FormClosed);
             this.Load += new System.EventHandler(this.Frm_inf_alumno_Load);
@@ -357,9 +407,9 @@ namespace Proyecto_biblioteca_express
             this.panel_botones.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel_pedidos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).EndInit();
             this.gbx_prestamos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,10 +418,6 @@ namespace Proyecto_biblioteca_express
 
         private System.Windows.Forms.Panel panel_datos_alumno;
         private System.Windows.Forms.PictureBox pic_imagen_alumno;
-        private System.Windows.Forms.Label lbl_numero_control;
-        private System.Windows.Forms.Label lbl_carrera;
-        private System.Windows.Forms.Label lbl_apellidos;
-        private System.Windows.Forms.Label lbl_nombres;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -381,9 +427,8 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.Panel panel_botones;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_registrar_pedido;
         private System.Windows.Forms.Panel panel_pedidos;
-        private System.Windows.Forms.DataGridView dgv_pedidos;
         private System.Windows.Forms.GroupBox gbx_prestamos;
         private System.Windows.Forms.DataGridView dgv_prestamos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
@@ -392,5 +437,14 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
         private System.Windows.Forms.DataGridViewImageColumn Renovar;
         private System.Windows.Forms.DataGridViewImageColumn Devolver;
+        private System.Windows.Forms.DataGridView dgv_pedidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        public System.Windows.Forms.Label lbl_numero_control;
+        public System.Windows.Forms.Label lbl_carrera;
+        public System.Windows.Forms.Label lbl_apellidos;
+        public System.Windows.Forms.Label lbl_nombres;
     }
 }
