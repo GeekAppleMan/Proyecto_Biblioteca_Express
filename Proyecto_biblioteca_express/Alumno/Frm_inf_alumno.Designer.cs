@@ -30,35 +30,41 @@ namespace Proyecto_biblioteca_express
         private void InitializeComponent()
         {
             this.panel_datos_alumno = new System.Windows.Forms.Panel();
-            this.pic_imagen_alumno = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbl_nombres = new System.Windows.Forms.Label();
-            this.lbl_apellidos = new System.Windows.Forms.Label();
-            this.lbl_carrera = new System.Windows.Forms.Label();
             this.lbl_numero_control = new System.Windows.Forms.Label();
+            this.lbl_carrera = new System.Windows.Forms.Label();
+            this.lbl_apellidos = new System.Windows.Forms.Label();
+            this.lbl_nombres = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pic_imagen_alumno = new System.Windows.Forms.PictureBox();
             this.panel_prestamos_pedidos_botones = new System.Windows.Forms.Panel();
-            this.gbx_prestamos = new System.Windows.Forms.GroupBox();
-            this.dgv_prestamos = new System.Windows.Forms.DataGridView();
             this.gbx_pedidos = new System.Windows.Forms.GroupBox();
-            this.panel_pedidos = new System.Windows.Forms.Panel();
-            this.dgv_pedidos = new System.Windows.Forms.DataGridView();
             this.panel_botones = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.panel_pedidos = new System.Windows.Forms.Panel();
+            this.dgv_pedidos = new System.Windows.Forms.DataGridView();
+            this.gbx_prestamos = new System.Windows.Forms.GroupBox();
+            this.dgv_prestamos = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_devolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Renovar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Devolver = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_datos_alumno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).BeginInit();
             this.panel_prestamos_pedidos_botones.SuspendLayout();
-            this.gbx_prestamos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).BeginInit();
             this.gbx_pedidos.SuspendLayout();
-            this.panel_pedidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).BeginInit();
             this.panel_botones.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel_pedidos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).BeginInit();
+            this.gbx_prestamos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_datos_alumno
@@ -78,74 +84,15 @@ namespace Proyecto_biblioteca_express
             this.panel_datos_alumno.Size = new System.Drawing.Size(866, 226);
             this.panel_datos_alumno.TabIndex = 0;
             // 
-            // pic_imagen_alumno
+            // lbl_numero_control
             // 
-            this.pic_imagen_alumno.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pic_imagen_alumno.Location = new System.Drawing.Point(604, 0);
-            this.pic_imagen_alumno.Name = "pic_imagen_alumno";
-            this.pic_imagen_alumno.Size = new System.Drawing.Size(262, 226);
-            this.pic_imagen_alumno.TabIndex = 0;
-            this.pic_imagen_alumno.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombres:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Apellidos:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Carrera:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 21);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "No. de control:";
-            // 
-            // lbl_nombres
-            // 
-            this.lbl_nombres.AutoSize = true;
-            this.lbl_nombres.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nombres.Location = new System.Drawing.Point(107, 36);
-            this.lbl_nombres.Name = "lbl_nombres";
-            this.lbl_nombres.Size = new System.Drawing.Size(84, 21);
-            this.lbl_nombres.TabIndex = 5;
-            this.lbl_nombres.Text = "Nombres";
-            // 
-            // lbl_apellidos
-            // 
-            this.lbl_apellidos.AutoSize = true;
-            this.lbl_apellidos.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_apellidos.Location = new System.Drawing.Point(108, 71);
-            this.lbl_apellidos.Name = "lbl_apellidos";
-            this.lbl_apellidos.Size = new System.Drawing.Size(85, 21);
-            this.lbl_apellidos.TabIndex = 6;
-            this.lbl_apellidos.Text = "Apellidos";
+            this.lbl_numero_control.AutoSize = true;
+            this.lbl_numero_control.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_numero_control.Location = new System.Drawing.Point(153, 146);
+            this.lbl_numero_control.Name = "lbl_numero_control";
+            this.lbl_numero_control.Size = new System.Drawing.Size(105, 21);
+            this.lbl_numero_control.TabIndex = 8;
+            this.lbl_numero_control.Text = "No. Control";
             // 
             // lbl_carrera
             // 
@@ -157,15 +104,74 @@ namespace Proyecto_biblioteca_express
             this.lbl_carrera.TabIndex = 7;
             this.lbl_carrera.Text = "Carrera";
             // 
-            // lbl_numero_control
+            // lbl_apellidos
             // 
-            this.lbl_numero_control.AutoSize = true;
-            this.lbl_numero_control.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_numero_control.Location = new System.Drawing.Point(153, 146);
-            this.lbl_numero_control.Name = "lbl_numero_control";
-            this.lbl_numero_control.Size = new System.Drawing.Size(105, 21);
-            this.lbl_numero_control.TabIndex = 8;
-            this.lbl_numero_control.Text = "No. Control";
+            this.lbl_apellidos.AutoSize = true;
+            this.lbl_apellidos.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_apellidos.Location = new System.Drawing.Point(108, 71);
+            this.lbl_apellidos.Name = "lbl_apellidos";
+            this.lbl_apellidos.Size = new System.Drawing.Size(85, 21);
+            this.lbl_apellidos.TabIndex = 6;
+            this.lbl_apellidos.Text = "Apellidos";
+            // 
+            // lbl_nombres
+            // 
+            this.lbl_nombres.AutoSize = true;
+            this.lbl_nombres.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nombres.Location = new System.Drawing.Point(107, 36);
+            this.lbl_nombres.Name = "lbl_nombres";
+            this.lbl_nombres.Size = new System.Drawing.Size(84, 21);
+            this.lbl_nombres.TabIndex = 5;
+            this.lbl_nombres.Text = "Nombres";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 21);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "No. de control:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Carrera:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Apellidos:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombres:";
+            // 
+            // pic_imagen_alumno
+            // 
+            this.pic_imagen_alumno.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pic_imagen_alumno.Location = new System.Drawing.Point(604, 0);
+            this.pic_imagen_alumno.Name = "pic_imagen_alumno";
+            this.pic_imagen_alumno.Size = new System.Drawing.Size(262, 226);
+            this.pic_imagen_alumno.TabIndex = 0;
+            this.pic_imagen_alumno.TabStop = false;
             // 
             // panel_prestamos_pedidos_botones
             // 
@@ -176,28 +182,6 @@ namespace Proyecto_biblioteca_express
             this.panel_prestamos_pedidos_botones.Name = "panel_prestamos_pedidos_botones";
             this.panel_prestamos_pedidos_botones.Size = new System.Drawing.Size(866, 494);
             this.panel_prestamos_pedidos_botones.TabIndex = 1;
-            // 
-            // gbx_prestamos
-            // 
-            this.gbx_prestamos.Controls.Add(this.dgv_prestamos);
-            this.gbx_prestamos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbx_prestamos.Location = new System.Drawing.Point(0, 0);
-            this.gbx_prestamos.Name = "gbx_prestamos";
-            this.gbx_prestamos.Size = new System.Drawing.Size(866, 218);
-            this.gbx_prestamos.TabIndex = 0;
-            this.gbx_prestamos.TabStop = false;
-            this.gbx_prestamos.Text = "Prestamos";
-            // 
-            // dgv_prestamos
-            // 
-            this.dgv_prestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_prestamos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_prestamos.Location = new System.Drawing.Point(3, 18);
-            this.dgv_prestamos.Name = "dgv_prestamos";
-            this.dgv_prestamos.RowHeadersWidth = 51;
-            this.dgv_prestamos.RowTemplate.Height = 24;
-            this.dgv_prestamos.Size = new System.Drawing.Size(860, 197);
-            this.dgv_prestamos.TabIndex = 0;
             // 
             // gbx_pedidos
             // 
@@ -210,26 +194,6 @@ namespace Proyecto_biblioteca_express
             this.gbx_pedidos.TabIndex = 1;
             this.gbx_pedidos.TabStop = false;
             this.gbx_pedidos.Text = "Pedidos";
-            // 
-            // panel_pedidos
-            // 
-            this.panel_pedidos.Controls.Add(this.dgv_pedidos);
-            this.panel_pedidos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_pedidos.Location = new System.Drawing.Point(3, 18);
-            this.panel_pedidos.Name = "panel_pedidos";
-            this.panel_pedidos.Size = new System.Drawing.Size(860, 186);
-            this.panel_pedidos.TabIndex = 0;
-            // 
-            // dgv_pedidos
-            // 
-            this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_pedidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_pedidos.Location = new System.Drawing.Point(0, 0);
-            this.dgv_pedidos.Name = "dgv_pedidos";
-            this.dgv_pedidos.RowHeadersWidth = 51;
-            this.dgv_pedidos.RowTemplate.Height = 24;
-            this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
-            this.dgv_pedidos.TabIndex = 0;
             // 
             // panel_botones
             // 
@@ -281,6 +245,97 @@ namespace Proyecto_biblioteca_express
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
             // 
+            // panel_pedidos
+            // 
+            this.panel_pedidos.Controls.Add(this.dgv_pedidos);
+            this.panel_pedidos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_pedidos.Location = new System.Drawing.Point(3, 18);
+            this.panel_pedidos.Name = "panel_pedidos";
+            this.panel_pedidos.Size = new System.Drawing.Size(860, 186);
+            this.panel_pedidos.TabIndex = 0;
+            // 
+            // dgv_pedidos
+            // 
+            this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_pedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_pedidos.Location = new System.Drawing.Point(0, 0);
+            this.dgv_pedidos.Name = "dgv_pedidos";
+            this.dgv_pedidos.RowHeadersWidth = 51;
+            this.dgv_pedidos.RowTemplate.Height = 24;
+            this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
+            this.dgv_pedidos.TabIndex = 0;
+            // 
+            // gbx_prestamos
+            // 
+            this.gbx_prestamos.Controls.Add(this.dgv_prestamos);
+            this.gbx_prestamos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbx_prestamos.Location = new System.Drawing.Point(0, 0);
+            this.gbx_prestamos.Name = "gbx_prestamos";
+            this.gbx_prestamos.Size = new System.Drawing.Size(866, 218);
+            this.gbx_prestamos.TabIndex = 0;
+            this.gbx_prestamos.TabStop = false;
+            this.gbx_prestamos.Text = "Prestamos";
+            // 
+            // dgv_prestamos
+            // 
+            this.dgv_prestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_prestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Libro,
+            this.Fecha_salida,
+            this.Fecha_devolucion,
+            this.Renovar,
+            this.Devolver});
+            this.dgv_prestamos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_prestamos.Location = new System.Drawing.Point(3, 18);
+            this.dgv_prestamos.Name = "dgv_prestamos";
+            this.dgv_prestamos.RowHeadersWidth = 51;
+            this.dgv_prestamos.RowTemplate.Height = 24;
+            this.dgv_prestamos.Size = new System.Drawing.Size(860, 197);
+            this.dgv_prestamos.TabIndex = 0;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Width = 125;
+            // 
+            // Libro
+            // 
+            this.Libro.HeaderText = "Libro";
+            this.Libro.MinimumWidth = 6;
+            this.Libro.Name = "Libro";
+            this.Libro.Width = 125;
+            // 
+            // Fecha_salida
+            // 
+            this.Fecha_salida.HeaderText = "Fecha de salida";
+            this.Fecha_salida.MinimumWidth = 6;
+            this.Fecha_salida.Name = "Fecha_salida";
+            this.Fecha_salida.Width = 125;
+            // 
+            // Fecha_devolucion
+            // 
+            this.Fecha_devolucion.HeaderText = "Fecha de devolucion";
+            this.Fecha_devolucion.MinimumWidth = 6;
+            this.Fecha_devolucion.Name = "Fecha_devolucion";
+            this.Fecha_devolucion.Width = 125;
+            // 
+            // Renovar
+            // 
+            this.Renovar.HeaderText = "Renovar";
+            this.Renovar.MinimumWidth = 6;
+            this.Renovar.Name = "Renovar";
+            this.Renovar.Width = 125;
+            // 
+            // Devolver
+            // 
+            this.Devolver.HeaderText = "Devolver";
+            this.Devolver.MinimumWidth = 6;
+            this.Devolver.Name = "Devolver";
+            this.Devolver.Width = 125;
+            // 
             // Frm_inf_alumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,17 +347,19 @@ namespace Proyecto_biblioteca_express
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_inf_alumno";
             this.Text = "Informacion del alumno";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_inf_alumno_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_inf_alumno_Load);
             this.panel_datos_alumno.ResumeLayout(false);
             this.panel_datos_alumno.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).EndInit();
             this.panel_prestamos_pedidos_botones.ResumeLayout(false);
-            this.gbx_prestamos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).EndInit();
             this.gbx_pedidos.ResumeLayout(false);
-            this.panel_pedidos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).EndInit();
             this.panel_botones.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel_pedidos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).EndInit();
+            this.gbx_prestamos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +386,11 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.DataGridView dgv_pedidos;
         private System.Windows.Forms.GroupBox gbx_prestamos;
         private System.Windows.Forms.DataGridView dgv_prestamos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Libro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_salida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
+        private System.Windows.Forms.DataGridViewImageColumn Renovar;
+        private System.Windows.Forms.DataGridViewImageColumn Devolver;
     }
 }

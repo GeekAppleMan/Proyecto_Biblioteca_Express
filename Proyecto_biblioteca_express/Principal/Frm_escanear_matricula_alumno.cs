@@ -32,5 +32,20 @@ namespace Proyecto_biblioteca_express
                 Scan();
             }
         }
+
+        private void Frm_escanear_matricula_alumno_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_virificar_Click(object sender, EventArgs e)
+        {
+            Scan();
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

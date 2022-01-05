@@ -88,12 +88,6 @@
     <Compile Include="Clases\Cls_libro.cs" />
     <Compile Include="Clases\Cls_alumno.cs" />
     <Compile Include="Clases\Cls_conexion.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Principal\Frm_escanear_matricula_alumno.cs">
       <SubType>Form</SubType>
     </Compile>
