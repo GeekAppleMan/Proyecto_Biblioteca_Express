@@ -16,5 +16,21 @@ namespace Proyecto_biblioteca_express
         {
             InitializeComponent();
         }
+
+        public void Scan()
+        {
+            int matric = Convert.ToInt32(txtMatricula.Text);
+            Cls_alumno clsalumno = new Cls_alumno();
+
+            clsalumno.verifAlumno(matric,this);
+        }
+
+        private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Scan();
+            }
+        }
     }
 }

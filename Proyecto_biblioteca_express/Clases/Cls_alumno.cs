@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_biblioteca_express
 {
     class Cls_alumno : Cls_conexion
     {
-
-        public void verifAlumno(int matricula)
+        Frm_inf_alumno frminfoalumno = new Frm_inf_alumno();
+        public void verifAlumno(int matricula,Form pricipal)
         {
-            string query = "SELECT * FROM tb_alumnos WHERE estatus = '1'";
+            
+
+            string query = "SELECT * FROM tb_alumno WHERE matricula = '"+ matricula +"'";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -23,14 +26,15 @@ namespace Proyecto_biblioteca_express
 
             if (reader.HasRows)
             {
-                while (reader.Read())
+                if (reader.Read())
                 {
-                   
+                    frminfoalumno.Show();
+                    pricipal.Hide();
                 }
             }
             else
             {
-                Console.WriteLine("No se encontro al alumno");
+                MessageBox.Show("No se encontro al alumno");
             }
         }
     }
