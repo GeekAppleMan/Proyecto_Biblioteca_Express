@@ -15,6 +15,8 @@ namespace Proyecto_biblioteca_express
         Cls_libro obj_libro = new Cls_libro();
         public static int index { get; set; }
         public static string codigo { get; set; }
+
+        public static bool verificar_libro { get; set; }
         public Frm_regresar_libro()
         {
             InitializeComponent();
@@ -35,11 +37,13 @@ namespace Proyecto_biblioteca_express
             if (codigo == txtCodigo.Text)
             {
                 obj_libro.devolver_libro(index);
+                verificar_libro = true;
                 this.Close();
             }
             else
             {
                 MessageBox.Show("El codigo del libro no coincide");
+                verificar_libro = false;
             }
         }
 

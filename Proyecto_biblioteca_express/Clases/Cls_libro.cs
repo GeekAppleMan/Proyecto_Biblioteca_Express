@@ -119,7 +119,6 @@ namespace Proyecto_biblioteca_express
             eliminar_libro_prestamo(index);
 
             MessageBox.Show("Se devolvio el libro");
-            Cls_alumno.id_prestamos.Rows.RemoveAt(index);
         }
 
         public void eliminar_libro_prestamo(int index)

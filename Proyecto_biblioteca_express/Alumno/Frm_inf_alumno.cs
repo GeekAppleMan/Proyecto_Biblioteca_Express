@@ -14,6 +14,7 @@ namespace Proyecto_biblioteca_express
     {
         Cls_alumno obj_prestamos = new Cls_alumno();
         Cls_libro obj_libro = new Cls_libro();
+        Frm_regresar_libro obj_regresar = new Frm_regresar_libro();
         public static DataTable pedidos = new DataTable();
         public Frm_inf_alumno()
         {
@@ -47,20 +48,7 @@ namespace Proyecto_biblioteca_express
             Cls_libro.pedidos.Columns.Clear();
         }
 
-        private void btn_agregar_Click(object sender, EventArgs e)
-        {
-            Frm_escanear_libro obj_escanear_libro = new Frm_escanear_libro();
-            obj_escanear_libro.ShowDialog();
-            if (Cls_libro.codigo_libro == null || Cls_libro.nombre == null || Cls_libro.fecha_devolucion == null)
-            {
-
-            }
-            else
-            {
-                dgv_pedidos.Rows.Add(Cls_libro.codigo_libro, Cls_libro.nombre, Cls_libro.fecha_devolucion);
-            }
-        }
-
+ 
         private void dgv_pedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
@@ -75,12 +63,6 @@ namespace Proyecto_biblioteca_express
                     dgv_pedidos.Rows.RemoveAt(e.RowIndex);
                 }
             }
-        }
-
-        private void btn_registrar_pedido_Click(object sender, EventArgs e)
-        {
-            obj_libro.registrar_pedido(dgv_pedidos);
-            cargar_prestamos();
         }
 
         private void dgv_prestamos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -112,8 +94,12 @@ namespace Proyecto_biblioteca_express
                     {
                         Frm_regresar_libro.index = e.RowIndex;
                         Frm_regresar_libro.codigo = dgv_prestamos[0, e.RowIndex].Value.ToString();
-                        Frm_regresar_libro obj_regresar = new Frm_regresar_libro();
                         obj_regresar.ShowDialog();
+                        if (Frm_regresar_libro.verificar_libro == true)
+                        {
+                            Cls_alumno.id_prestamos.Rows.RemoveAt(e.RowIndex);
+                            dgv_prestamos.Rows.RemoveAt(e.RowIndex);
+                        }
                         cargar_prestamos();
                     }
                     else if (dialogResult == DialogResult.No)
@@ -123,6 +109,28 @@ namespace Proyecto_biblioteca_express
                   
                 }
             }
+        }
+
+        private void btn_agregar_Click_1(object sender, EventArgs e)
+        {
+
+            Frm_escanear_libro obj_escanear_libro = new Frm_escanear_libro();
+            obj_escanear_libro.ShowDialog();
+            if (Cls_libro.codigo_libro == null || Cls_libro.nombre == null || Cls_libro.fecha_devolucion == null)
+            {
+
+            }
+            else
+            {
+                dgv_pedidos.Rows.Add(Cls_libro.codigo_libro, Cls_libro.nombre, Cls_libro.fecha_devolucion);
+            }
+           
+        }
+
+        private void btn_registrar_pedido_Click_1(object sender, EventArgs e)
+        {
+            obj_libro.registrar_pedido(dgv_pedidos);
+            cargar_prestamos();
         }
     }
 }
