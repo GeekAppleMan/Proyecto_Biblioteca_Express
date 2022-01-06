@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-01-2022 a las 19:12:50
+-- Tiempo de generación: 06-01-2022 a las 01:11:13
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `tb_alumno` (
   `foto_perfil` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tb_alumno`
+--
+
+INSERT INTO `tb_alumno` (`id_alumno`, `matricula`, `nombres`, `apellidos`, `carrera`, `foto_perfil`) VALUES
+(1, 17340346, 'Jaime Alberto', 'Sanchez Martinez', 'ISC', '');
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +52,16 @@ CREATE TABLE `tb_alumno` (
 CREATE TABLE `tb_libro` (
   `id_libro` int(11) NOT NULL,
   `codigo` int(255) NOT NULL,
-  `nombre` int(11) NOT NULL
+  `nombre` varchar(255) NOT NULL,
+  `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tb_libro`
+--
+
+INSERT INTO `tb_libro` (`id_libro`, `codigo`, `nombre`, `estatus`) VALUES
+(1, 123456, 'Paisajes', 1);
 
 -- --------------------------------------------------------
 
@@ -92,19 +107,19 @@ ALTER TABLE `tb_prestamos`
 -- AUTO_INCREMENT de la tabla `tb_alumno`
 --
 ALTER TABLE `tb_alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_libro`
 --
 ALTER TABLE `tb_libro`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_prestamos`
 --
 ALTER TABLE `tb_prestamos`
-  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
