@@ -51,7 +51,7 @@ namespace Proyecto_biblioteca_express
         {
             Frm_escanear_libro obj_escanear_libro = new Frm_escanear_libro();
             obj_escanear_libro.ShowDialog();
-            if (Cls_libro.codigo_libro == 0 || Cls_libro.nombre == null || Cls_libro.fecha_devolucion == null)
+            if (Cls_libro.codigo_libro == null || Cls_libro.nombre == null || Cls_libro.fecha_devolucion == null)
             {
 
             }
@@ -93,13 +93,34 @@ namespace Proyecto_biblioteca_express
             {
                 if (e.ColumnIndex == 4)
                 {
-                    obj_libro.renovar_libro(dgv_prestamos[3, e.RowIndex].Value.ToString(), e.RowIndex);
-                    cargar_prestamos();
+                    DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere renovar?", "ALERTA", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        obj_libro.renovar_libro(dgv_prestamos[3, e.RowIndex].Value.ToString(), e.RowIndex);
+                        cargar_prestamos();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        
+                    }
+                   
                 }
                 if (e.ColumnIndex == 5)
                 {
-                    obj_libro.devolver_libro(e.RowIndex);
-                    cargar_prestamos();
+                    DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere regresar el libro?", "ALERTA", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Frm_regresar_libro.index = e.RowIndex;
+                        Frm_regresar_libro.codigo = dgv_prestamos[0, e.RowIndex].Value.ToString();
+                        Frm_regresar_libro obj_regresar = new Frm_regresar_libro();
+                        obj_regresar.ShowDialog();
+                        cargar_prestamos();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+                  
                 }
             }
         }

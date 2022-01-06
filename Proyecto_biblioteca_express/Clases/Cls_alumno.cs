@@ -37,6 +37,7 @@ namespace Proyecto_biblioteca_express
                         frm_Inf_Alumno.lbl_nombres.Text = reader.GetString(2);
                         frm_Inf_Alumno.lbl_apellidos.Text = reader.GetString(3);
                         frm_Inf_Alumno.lbl_carrera.Text = reader.GetString(4);
+                        frm_Inf_Alumno.pic_imagen_alumno.ImageLocation = reader.GetString(5);
                         frm_Inf_Alumno.Show();
                         principal.Hide();
                     }

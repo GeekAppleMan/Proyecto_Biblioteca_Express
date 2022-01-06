@@ -23,7 +23,7 @@ namespace Proyecto_biblioteca_express
         }
         public void Scan()
         {
-            int codig = Convert.ToInt32(txtCodigo.Text);
+            string codig = txtCodigo.Text;
             Cls_libro obj_libro = new Cls_libro();
             obj_libro.verif_Libro(codig,this);
         }
@@ -44,7 +44,7 @@ namespace Proyecto_biblioteca_express
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-            Cls_libro.codigo_libro = 0;
+            Cls_libro.codigo_libro = null;
             Cls_libro.nombre = null;
             Cls_libro.fecha_devolucion = null;
         }
