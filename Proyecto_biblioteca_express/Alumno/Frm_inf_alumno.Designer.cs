@@ -38,7 +38,6 @@ namespace Proyecto_biblioteca_express
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pic_imagen_alumno = new System.Windows.Forms.PictureBox();
             this.panel_prestamos_pedidos_botones = new System.Windows.Forms.Panel();
             this.gbx_pedidos = new System.Windows.Forms.GroupBox();
             this.panel_botones = new System.Windows.Forms.Panel();
@@ -46,29 +45,32 @@ namespace Proyecto_biblioteca_express
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_registrar_pedido = new System.Windows.Forms.Button();
             this.panel_pedidos = new System.Windows.Forms.Panel();
+            this.dgv_pedidos = new System.Windows.Forms.DataGridView();
             this.gbx_prestamos = new System.Windows.Forms.GroupBox();
             this.dgv_prestamos = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_devolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Renovar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Devolver = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgv_pedidos = new System.Windows.Forms.DataGridView();
+            this.pic_imagen_alumno = new System.Windows.Forms.PictureBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_datos_alumno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).BeginInit();
             this.panel_prestamos_pedidos_botones.SuspendLayout();
             this.gbx_pedidos.SuspendLayout();
             this.panel_botones.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_pedidos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).BeginInit();
             this.gbx_prestamos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_datos_alumno
@@ -168,15 +170,6 @@ namespace Proyecto_biblioteca_express
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombres:";
             // 
-            // pic_imagen_alumno
-            // 
-            this.pic_imagen_alumno.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pic_imagen_alumno.Location = new System.Drawing.Point(604, 0);
-            this.pic_imagen_alumno.Name = "pic_imagen_alumno";
-            this.pic_imagen_alumno.Size = new System.Drawing.Size(262, 226);
-            this.pic_imagen_alumno.TabIndex = 0;
-            this.pic_imagen_alumno.TabStop = false;
-            // 
             // panel_prestamos_pedidos_botones
             // 
             this.panel_prestamos_pedidos_botones.Controls.Add(this.gbx_pedidos);
@@ -262,6 +255,28 @@ namespace Proyecto_biblioteca_express
             this.panel_pedidos.Size = new System.Drawing.Size(860, 186);
             this.panel_pedidos.TabIndex = 0;
             // 
+            // dgv_pedidos
+            // 
+            this.dgv_pedidos.AllowUserToAddRows = false;
+            this.dgv_pedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_pedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_pedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewImageColumn2});
+            this.dgv_pedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_pedidos.Location = new System.Drawing.Point(0, 0);
+            this.dgv_pedidos.Name = "dgv_pedidos";
+            this.dgv_pedidos.ReadOnly = true;
+            this.dgv_pedidos.RowHeadersVisible = false;
+            this.dgv_pedidos.RowHeadersWidth = 51;
+            this.dgv_pedidos.RowTemplate.Height = 24;
+            this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
+            this.dgv_pedidos.TabIndex = 1;
+            this.dgv_pedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pedidos_CellClick);
+            // 
             // gbx_prestamos
             // 
             this.gbx_prestamos.Controls.Add(this.dgv_prestamos);
@@ -295,6 +310,7 @@ namespace Proyecto_biblioteca_express
             this.dgv_prestamos.RowTemplate.Height = 24;
             this.dgv_prestamos.Size = new System.Drawing.Size(860, 197);
             this.dgv_prestamos.TabIndex = 0;
+            this.dgv_prestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_prestamos_CellClick);
             // 
             // Codigo
             // 
@@ -324,9 +340,31 @@ namespace Proyecto_biblioteca_express
             this.Fecha_devolucion.Name = "Fecha_devolucion";
             this.Fecha_devolucion.ReadOnly = true;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Renovar";
+            this.dataGridViewImageColumn1.Image = global::Proyecto_biblioteca_express.Properties.Resources.agregar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 143;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "Devolver";
+            this.dataGridViewImageColumn3.Image = global::Proyecto_biblioteca_express.Properties.Resources.devolver;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Width = 143;
+            // 
             // Renovar
             // 
             this.Renovar.HeaderText = "Renovar";
+            this.Renovar.Image = global::Proyecto_biblioteca_express.Properties.Resources.agregar;
+            this.Renovar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Renovar.MinimumWidth = 6;
             this.Renovar.Name = "Renovar";
             this.Renovar.ReadOnly = true;
@@ -334,31 +372,20 @@ namespace Proyecto_biblioteca_express
             // Devolver
             // 
             this.Devolver.HeaderText = "Devolver";
+            this.Devolver.Image = global::Proyecto_biblioteca_express.Properties.Resources.atras;
+            this.Devolver.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Devolver.MinimumWidth = 6;
             this.Devolver.Name = "Devolver";
             this.Devolver.ReadOnly = true;
             // 
-            // dgv_pedidos
+            // pic_imagen_alumno
             // 
-            this.dgv_pedidos.AllowUserToAddRows = false;
-            this.dgv_pedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_pedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_pedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewImageColumn2});
-            this.dgv_pedidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_pedidos.Location = new System.Drawing.Point(0, 0);
-            this.dgv_pedidos.Name = "dgv_pedidos";
-            this.dgv_pedidos.ReadOnly = true;
-            this.dgv_pedidos.RowHeadersVisible = false;
-            this.dgv_pedidos.RowHeadersWidth = 51;
-            this.dgv_pedidos.RowTemplate.Height = 24;
-            this.dgv_pedidos.Size = new System.Drawing.Size(860, 186);
-            this.dgv_pedidos.TabIndex = 1;
-            this.dgv_pedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pedidos_CellClick);
+            this.pic_imagen_alumno.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pic_imagen_alumno.Location = new System.Drawing.Point(604, 0);
+            this.pic_imagen_alumno.Name = "pic_imagen_alumno";
+            this.pic_imagen_alumno.Size = new System.Drawing.Size(262, 226);
+            this.pic_imagen_alumno.TabIndex = 0;
+            this.pic_imagen_alumno.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -384,6 +411,8 @@ namespace Proyecto_biblioteca_express
             // dataGridViewImageColumn2
             // 
             this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = global::Proyecto_biblioteca_express.Properties.Resources.cerrar__1_;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
@@ -404,15 +433,15 @@ namespace Proyecto_biblioteca_express
             this.Load += new System.EventHandler(this.Frm_inf_alumno_Load);
             this.panel_datos_alumno.ResumeLayout(false);
             this.panel_datos_alumno.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).EndInit();
             this.panel_prestamos_pedidos_botones.ResumeLayout(false);
             this.gbx_pedidos.ResumeLayout(false);
             this.panel_botones.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel_pedidos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).EndInit();
             this.gbx_prestamos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_imagen_alumno)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,20 +463,22 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.Panel panel_pedidos;
         private System.Windows.Forms.GroupBox gbx_prestamos;
         private System.Windows.Forms.DataGridView dgv_prestamos;
+        public System.Windows.Forms.Label lbl_numero_control;
+        public System.Windows.Forms.Label lbl_carrera;
+        public System.Windows.Forms.Label lbl_apellidos;
+        public System.Windows.Forms.Label lbl_nombres;
+        public System.Windows.Forms.DataGridView dgv_pedidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Libro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
         private System.Windows.Forms.DataGridViewImageColumn Renovar;
         private System.Windows.Forms.DataGridViewImageColumn Devolver;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        public System.Windows.Forms.Label lbl_numero_control;
-        public System.Windows.Forms.Label lbl_carrera;
-        public System.Windows.Forms.Label lbl_apellidos;
-        public System.Windows.Forms.Label lbl_nombres;
-        public System.Windows.Forms.DataGridView dgv_pedidos;
     }
 }

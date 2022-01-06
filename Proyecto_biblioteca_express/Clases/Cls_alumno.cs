@@ -12,7 +12,7 @@ namespace Proyecto_biblioteca_express
     class Cls_alumno : Cls_conexion
     {
         public static int id_alumno { get; set; }
-        private static DataTable id_prestamos = new DataTable();
+        public static DataTable id_prestamos = new DataTable();
 
         public void verif_Alumno(int matricula,Form principal)
         {
@@ -59,8 +59,9 @@ namespace Proyecto_biblioteca_express
                 if (id_prestamos.Columns.Count == 0)
                 {
                     id_prestamos.Columns.Add("id_prestamo");
+                    id_prestamos.Columns.Add("id_libro");
                 }
-                string query = "SELECT p.id_prestamo,l.codigo,l.nombre,p.fecha_salida,fecha_devolucion FROM `tb_prestamos` AS p INNER JOIN tb_libro AS l ON p.id_libro = l.id_libro WHERE p.id_alumno = " + "'" + id_alumno + "'";
+                string query = "SELECT p.id_prestamo,l.codigo,l.nombre,p.fecha_salida,fecha_devolucion,p.id_libro FROM `tb_prestamos` AS p INNER JOIN tb_libro AS l ON p.id_libro = l.id_libro WHERE p.id_alumno = " + "'" + id_alumno + "'";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
@@ -73,7 +74,7 @@ namespace Proyecto_biblioteca_express
                 {
                     while (reader.Read())
                     {
-                        id_prestamos.Rows.Add(reader.GetString(0));
+                        id_prestamos.Rows.Add(reader.GetString(0),reader.GetString(5));
                         prestamos.Rows.Add(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
                     }
                 }

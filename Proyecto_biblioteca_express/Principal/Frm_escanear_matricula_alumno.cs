@@ -38,14 +38,14 @@ namespace Proyecto_biblioteca_express
             Application.Exit();
         }
 
-        private void btn_virificar_Click(object sender, EventArgs e)
-        {
-            Scan();
-        }
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
+        private void btn_cancelar_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_virificar_Click_1(object sender, EventArgs e)
+        {
+            Scan();
         }
     }
 }
