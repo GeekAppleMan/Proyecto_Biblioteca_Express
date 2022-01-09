@@ -15,7 +15,6 @@ namespace Proyecto_biblioteca_express
         Cls_alumno obj_prestamos = new Cls_alumno();
         Cls_libro obj_libro = new Cls_libro();
         Frm_regresar_libro obj_regresar = new Frm_regresar_libro();
-        public static DataTable pedidos = new DataTable();
         public Frm_inf_alumno()
         {
             InitializeComponent();
@@ -23,13 +22,6 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_inf_alumno_Load(object sender, EventArgs e)
         {
-            if (pedidos.Columns.Count == 0)
-            {
-                pedidos.Columns.Add("id_alumno");
-                pedidos.Columns.Add("id_libro");
-                pedidos.Columns.Add("fecha_salida");
-                pedidos.Columns.Add("fecha_dev");
-            }
             cargar_prestamos();
         }
 
@@ -44,8 +36,6 @@ namespace Proyecto_biblioteca_express
             Frm_escanear_matricula_alumno obj_alumno = new Frm_escanear_matricula_alumno();
             obj_alumno.Show();
             dgv_prestamos.Rows.Clear();
-            Cls_libro.pedidos.Rows.Clear();
-            Cls_libro.pedidos.Columns.Clear();
         }
 
  
@@ -57,9 +47,8 @@ namespace Proyecto_biblioteca_express
             }
             else
             {
-                if (e.ColumnIndex == 3)
+                if (e.ColumnIndex == 5)
                 {
-                    Cls_libro.pedidos.Rows.RemoveAt(e.RowIndex);
                     dgv_pedidos.Rows.RemoveAt(e.RowIndex);
                 }
             }
@@ -73,12 +62,12 @@ namespace Proyecto_biblioteca_express
             }
             else
             {
-                if (e.ColumnIndex == 4)
+                if (e.ColumnIndex == 6)
                 {
                     DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere renovar?", "ALERTA", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        obj_libro.renovar_libro(dgv_prestamos[3, e.RowIndex].Value.ToString(), e.RowIndex);
+                        obj_libro.renovar_libro(dgv_prestamos[5, e.RowIndex].Value.ToString(), dgv_prestamos[0,e.RowIndex].Value.ToString());
                         cargar_prestamos();
                     }
                     else if (dialogResult == DialogResult.No)
@@ -87,24 +76,22 @@ namespace Proyecto_biblioteca_express
                     }
                    
                 }
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 7)
                 {
                     DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere regresar el libro?", "ALERTA", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        Frm_regresar_libro.index = e.RowIndex;
-                        Frm_regresar_libro.codigo = dgv_prestamos[0, e.RowIndex].Value.ToString();
+                        Frm_regresar_libro.codigo = dgv_prestamos[2, e.RowIndex].Value.ToString();
                         obj_regresar.ShowDialog();
                         if (Frm_regresar_libro.verificar_libro == true)
                         {
-                            Cls_alumno.id_prestamos.Rows.RemoveAt(e.RowIndex);
-                            dgv_prestamos.Rows.RemoveAt(e.RowIndex);
+                            obj_libro.devolver_libro(dgv_prestamos[1,e.RowIndex].Value.ToString(), dgv_prestamos[0, e.RowIndex].Value.ToString());
                         }
                         cargar_prestamos();
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        //do something else
+                        
                     }
                   
                 }
@@ -113,24 +100,27 @@ namespace Proyecto_biblioteca_express
 
         private void btn_agregar_Click_1(object sender, EventArgs e)
         {
-
+            Frm_escanear_libro.dgv = dgv_pedidos;
             Frm_escanear_libro obj_escanear_libro = new Frm_escanear_libro();
             obj_escanear_libro.ShowDialog();
-            if (Cls_libro.codigo_libro == null || Cls_libro.nombre == null || Cls_libro.fecha_devolucion == null)
+            if (Frm_escanear_libro.verificar == true)
             {
-
+                obj_libro.agregar_libro(dgv_pedidos, Cls_libro.codigo_libro);
             }
-            else
-            {
-                dgv_pedidos.Rows.Add(Cls_libro.codigo_libro, Cls_libro.nombre, Cls_libro.fecha_devolucion);
-            }
-           
+            Frm_escanear_libro.verificar = false;
         }
 
         private void btn_registrar_pedido_Click_1(object sender, EventArgs e)
         {
-            obj_libro.registrar_pedido(dgv_pedidos);
-            cargar_prestamos();
+            if (dgv_pedidos.Rows.Count == 0)
+            {
+                MessageBox.Show("No se han agregado libros");
+            }
+            else
+            {
+                obj_libro.registrar_pedido(dgv_pedidos);
+                cargar_prestamos();
+            }
         }
     }
 }

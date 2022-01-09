@@ -12,8 +12,6 @@ namespace Proyecto_biblioteca_express
 {
     public partial class Frm_regresar_libro : Form
     {
-        Cls_libro obj_libro = new Cls_libro();
-        public static int index { get; set; }
         public static string codigo { get; set; }
 
         public static bool verificar_libro { get; set; }
@@ -34,16 +32,22 @@ namespace Proyecto_biblioteca_express
 
         private void verificar()
         {
-            if (codigo == txtCodigo.Text)
+            if (string.IsNullOrEmpty(txtCodigo.Text))
             {
-                obj_libro.devolver_libro(index);
-                verificar_libro = true;
-                this.Close();
+                MessageBox.Show("Por favor ingrese el codigo antes de continuar");
             }
             else
             {
-                MessageBox.Show("El codigo del libro no coincide");
-                verificar_libro = false;
+                if (codigo == txtCodigo.Text)
+                {
+                    verificar_libro = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El codigo del libro no coincide");
+                    verificar_libro = false;
+                }
             }
         }
 
@@ -54,11 +58,20 @@ namespace Proyecto_biblioteca_express
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == (char)Keys.Enter)
             {
                 verificar();
                 txtCodigo.Text = "";
             }
+        }
+
+        private void Frm_regresar_libro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            txtCodigo.Text = "";
         }
     }
 }

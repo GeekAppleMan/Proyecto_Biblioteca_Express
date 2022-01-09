@@ -34,12 +34,16 @@ namespace Proyecto_biblioteca_express
             this.gbx_pedidos = new System.Windows.Forms.GroupBox();
             this.panel_pedidos = new System.Windows.Forms.Panel();
             this.dgv_pedidos = new System.Windows.Forms.DataGridView();
+            this.id_alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_libro2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.gbx_prestamos = new System.Windows.Forms.GroupBox();
             this.dgv_prestamos = new System.Windows.Forms.DataGridView();
+            this.id_prestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,10 +129,14 @@ namespace Proyecto_biblioteca_express
             // dgv_pedidos
             // 
             this.dgv_pedidos.AllowUserToAddRows = false;
+            this.dgv_pedidos.AllowUserToResizeColumns = false;
+            this.dgv_pedidos.AllowUserToResizeRows = false;
             this.dgv_pedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_pedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_pedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_alumno,
+            this.id_libro2,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
@@ -144,6 +152,22 @@ namespace Proyecto_biblioteca_express
             this.dgv_pedidos.Size = new System.Drawing.Size(788, 212);
             this.dgv_pedidos.TabIndex = 2;
             this.dgv_pedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pedidos_CellClick);
+            // 
+            // id_alumno
+            // 
+            this.id_alumno.HeaderText = "id_alumno";
+            this.id_alumno.MinimumWidth = 6;
+            this.id_alumno.Name = "id_alumno";
+            this.id_alumno.ReadOnly = true;
+            this.id_alumno.Visible = false;
+            // 
+            // id_libro2
+            // 
+            this.id_libro2.HeaderText = "id_libro";
+            this.id_libro2.MinimumWidth = 6;
+            this.id_libro2.Name = "id_libro2";
+            this.id_libro2.ReadOnly = true;
+            this.id_libro2.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -191,10 +215,14 @@ namespace Proyecto_biblioteca_express
             // dgv_prestamos
             // 
             this.dgv_prestamos.AllowUserToAddRows = false;
+            this.dgv_prestamos.AllowUserToResizeColumns = false;
+            this.dgv_prestamos.AllowUserToResizeRows = false;
             this.dgv_prestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_prestamos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_prestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_prestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_prestamo,
+            this.id_libro,
             this.Codigo,
             this.Libro,
             this.Fecha_salida,
@@ -212,6 +240,22 @@ namespace Proyecto_biblioteca_express
             this.dgv_prestamos.Size = new System.Drawing.Size(788, 211);
             this.dgv_prestamos.TabIndex = 0;
             this.dgv_prestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_prestamos_CellClick);
+            // 
+            // id_prestamo
+            // 
+            this.id_prestamo.HeaderText = "id_prestamo";
+            this.id_prestamo.MinimumWidth = 6;
+            this.id_prestamo.Name = "id_prestamo";
+            this.id_prestamo.ReadOnly = true;
+            this.id_prestamo.Visible = false;
+            // 
+            // id_libro
+            // 
+            this.id_libro.HeaderText = "id_libro";
+            this.id_libro.MinimumWidth = 6;
+            this.id_libro.Name = "id_libro";
+            this.id_libro.ReadOnly = true;
+            this.id_libro.Visible = false;
             // 
             // Codigo
             // 
@@ -484,17 +528,7 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.GroupBox gbx_pedidos;
         private System.Windows.Forms.Panel panel_pedidos;
         public System.Windows.Forms.DataGridView dgv_pedidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridView dgv_prestamos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Libro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_salida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
-        private System.Windows.Forms.DataGridViewImageColumn Renovar;
-        private System.Windows.Forms.DataGridViewImageColumn Devolver;
         public System.Windows.Forms.PictureBox pic_imagen_alumno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -505,5 +539,19 @@ namespace Proyecto_biblioteca_express
         public System.Windows.Forms.Label lbl_carrera;
         public System.Windows.Forms.Label lbl_numero_control;
         private System.Windows.Forms.Panel panel_datos_alumno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_alumno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_libro2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_prestamo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_libro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Libro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_salida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
+        private System.Windows.Forms.DataGridViewImageColumn Renovar;
+        private System.Windows.Forms.DataGridViewImageColumn Devolver;
     }
 }

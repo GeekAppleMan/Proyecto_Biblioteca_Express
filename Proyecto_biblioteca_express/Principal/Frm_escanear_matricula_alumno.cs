@@ -19,14 +19,23 @@ namespace Proyecto_biblioteca_express
 
         public void Scan()
         {
-            int matric = Convert.ToInt32(txtMatricula.Text);
-            Cls_alumno clsalumno = new Cls_alumno();
-
-            clsalumno.verif_Alumno(matric,this);
+            if (string.IsNullOrEmpty(txtMatricula.Text))
+            {
+                MessageBox.Show("Por favor ingrese la matricula del estudiante antes de continuar");
+            }
+            else
+            {
+                Cls_alumno clsalumno = new Cls_alumno();
+                clsalumno.verif_Alumno(Convert.ToInt32(txtMatricula.Text), this);
+            }
         }
 
         private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == (char)Keys.Enter)
             {
                 Scan();

@@ -12,6 +12,10 @@ namespace Proyecto_biblioteca_express
 {
     public partial class Frm_escanear_libro : Form
     {
+        public static DataGridView dgv { get; set; }
+        public static bool verificar { get; set; }
+        private bool comprobar { get; set; }
+        Cls_libro obj_libro = new Cls_libro();
         public Frm_escanear_libro()
         {
             InitializeComponent();
@@ -21,15 +25,42 @@ namespace Proyecto_biblioteca_express
         {
 
         }
+
         public void Scan()
         {
-            string codig = txtCodigo.Text;
-            Cls_libro obj_libro = new Cls_libro();
-            obj_libro.verif_Libro(codig,this);
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                MessageBox.Show("Por favor ingrese el codigo antes de continuar");
+            }
+            else
+            {
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    if (txtCodigo.Text == dgv[2, i].Value.ToString())
+                    {
+                        comprobar = true;
+                    }
+                }
+                if (comprobar == true)
+                {
+                    MessageBox.Show("El libro ya fue agregado a tu lista de pedidos");
+                    txtCodigo.Text = "";
+                    verificar = false;
+                }
+                else
+                {
+                    obj_libro.verif_Libro(txtCodigo.Text, this);
+                }
+                comprobar = false;
+            }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == (char)Keys.Enter)
             {
                 Scan();
@@ -44,10 +75,11 @@ namespace Proyecto_biblioteca_express
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-            Cls_libro.codigo_libro = null;
-            Cls_libro.nombre = null;
-            Cls_libro.fecha_devolucion = null;
         }
 
+        private void Frm_escanear_libro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            txtCodigo.Text = "";
+        }
     }
 }
