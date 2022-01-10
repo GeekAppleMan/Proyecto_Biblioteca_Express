@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-01-2022 a las 04:30:41
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.1
+-- Tiempo de generación: 10-01-2022 a las 20:48:32
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -171,11 +171,18 @@ INSERT INTO `tb_impresiones` (`id_impresiones`, `id_usuario`, `cantidad_disp`) V
 --
 
 CREATE TABLE `tb_libro` (
-  `id` int(11) NOT NULL,
+  `id_libro` int(11) NOT NULL,
   `codigo` int(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tb_libro`
+--
+
+INSERT INTO `tb_libro` (`id_libro`, `codigo`, `nombre`, `estatus`) VALUES
+(1, 1, 'machupichu', 2);
 
 -- --------------------------------------------------------
 
@@ -218,6 +225,13 @@ CREATE TABLE `tb_prestamos` (
   `fecha_salida` varchar(255) NOT NULL,
   `fecha_devolucion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tb_prestamos`
+--
+
+INSERT INTO `tb_prestamos` (`id_prestamo`, `id_alumno`, `id_libro`, `fecha_salida`, `fecha_devolucion`) VALUES
+(4, 1, 1, '10/01/2022', '13/01/2022');
 
 -- --------------------------------------------------------
 
@@ -314,6 +328,8 @@ CREATE TABLE `tb_usuarios` (
   `id_usuario` int(11) NOT NULL,
   `no_control` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
+  `apellido_p` varchar(255) NOT NULL,
+  `apellido_m` varchar(255) NOT NULL,
   `celular` varchar(255) NOT NULL,
   `qr` varchar(255) NOT NULL,
   `id_departamento` int(11) NOT NULL DEFAULT 26,
@@ -328,12 +344,13 @@ CREATE TABLE `tb_usuarios` (
 -- Volcado de datos para la tabla `tb_usuarios`
 --
 
-INSERT INTO `tb_usuarios` (`id_usuario`, `no_control`, `nombre`, `celular`, `qr`, `id_departamento`, `id_carrera`, `id_estatus_conexion`, `vigencia`, `id_puesto`, `foto_perfil`) VALUES
-(1, 12340432, 'GIOVANNY ADRIAN SIQUEIROS LOPEZ', '6311906270', 'http://189.204.133.38:8081/EncuentrameApp/universidad/codigosqr/qr12340432.png', 8, 8, 1, '2021-11-26 15:36:15', 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/12340432.jpeg'),
-(2, 12340433, 'NOAN HERNANDEZ CORDOVA', '6313047163', 'http://189.204.133.38:8081/EncuentrameApp/universidad/codigosqr/qr12340433.png', 26, 7, 1, '2021-11-23 20:48:32', 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/12340433.jpg'),
-(3, 12340434, 'LLUBIA BARRERAS URIAS', '6319991985', 'http://189.204.133.38:8081/EncuentrameApp/universidad/codigosqr/qr12340434.png', 26, 8, 1, NULL, 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/qr12340432.png'),
-(4, 15340370, 'MARIA MORALES GONZALEZ', '6319991981', 'http://189.203.133.38:8081/EncuentrameApp/universidad/codigosqr/15340370.png', 26, 5, 1, NULL, 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/qr12340432.png'),
-(5, 15340372, 'Juan Jimenez', '6318881975', 'http://189.203.133.38:8081/EncuentrameApp/universidad/codigosqr/15340372.png', 26, 2, 1, NULL, 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/Fondo.png');
+INSERT INTO `tb_usuarios` (`id_usuario`, `no_control`, `nombre`, `apellido_p`, `apellido_m`, `celular`, `qr`, `id_departamento`, `id_carrera`, `id_estatus_conexion`, `vigencia`, `id_puesto`, `foto_perfil`) VALUES
+(1, 12340432, 'GIOVANNY ADRIAN', 'SIQUEIROS', 'LOPEZ', '6311906270', 'http://189.204.133.38:8081/EncuentrameApp/universidad/codigosqr/qr12340432.png', 8, 8, 1, '2021-11-26 15:36:15', 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/12340432.jpeg'),
+(2, 12340433, 'NOAN', 'HERNANDEZ', 'CORDOVA', '6313047163', 'http://189.204.133.38:8081/EncuentrameApp/universidad/codigosqr/qr12340433.png', 26, 7, 1, '2021-11-23 20:48:32', 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/12340433.jpg'),
+(3, 12340434, 'LLUBIA', 'BARRERA', 'URIAS', '6319991985', 'http://189.204.133.38:8081/EncuentrameApp/universidad/codigosqr/qr12340434.png', 26, 8, 1, NULL, 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/qr12340432.png'),
+(4, 15340370, 'MARIA', 'MORALES', 'GONZALEZ', '6319991981', 'http://189.203.133.38:8081/EncuentrameApp/universidad/codigosqr/15340370.png', 26, 5, 1, NULL, 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/qr12340432.png'),
+(5, 15340372, 'Juan', 'jimenez', '', '6318881975', 'http://189.203.133.38:8081/EncuentrameApp/universidad/codigosqr/15340372.png', 26, 2, 1, NULL, 1, 'http://189.204.133.38:8081/EncuentrameApp/universidad/fotosperfil/Fondo.png'),
+(6, 18340340, 'GERONIMO JUAN SAMUEL', 'GARCIA', 'VALDEZ', '6311050643', '', 26, 8, 1, '2022-01-10 17:25:20', 1, 'http://localhost/CODE/BDGas/img-tablero/sonic1.png');
 
 -- --------------------------------------------------------
 
@@ -403,7 +420,7 @@ ALTER TABLE `tb_impresiones`
 -- Indices de la tabla `tb_libro`
 --
 ALTER TABLE `tb_libro`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_libro`);
 
 --
 -- Indices de la tabla `tb_login`
@@ -501,7 +518,7 @@ ALTER TABLE `tb_impresiones`
 -- AUTO_INCREMENT de la tabla `tb_libro`
 --
 ALTER TABLE `tb_libro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_login`
@@ -513,7 +530,7 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT de la tabla `tb_prestamos`
 --
 ALTER TABLE `tb_prestamos`
-  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_puesto`
@@ -537,7 +554,7 @@ ALTER TABLE `tb_solicitud_mantenimiento`
 -- AUTO_INCREMENT de la tabla `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_visitantes`
