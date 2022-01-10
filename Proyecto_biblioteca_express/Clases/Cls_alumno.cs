@@ -17,7 +17,7 @@ namespace Proyecto_biblioteca_express
         {
             try
             {
-                string query = "SELECT * FROM tb_alumno WHERE matricula = '" + matricula + "'";
+                string query = "SELECT A.id_usuario,A.no_control,A.nombre,C.carrera,A.foto_perfil FROM tb_usuarios AS A INNER JOIN tb_carrera AS C ON A.id_carrera = C.id_carrera WHERE A.no_control = '" + matricula + "'";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
@@ -34,9 +34,9 @@ namespace Proyecto_biblioteca_express
                         id_alumno = Convert.ToInt32(reader.GetString(0));
                         frm_Inf_Alumno.lbl_numero_control.Text = reader.GetString(1);
                         frm_Inf_Alumno.lbl_nombres.Text = reader.GetString(2);
-                        frm_Inf_Alumno.lbl_apellidos.Text = reader.GetString(3);
-                        frm_Inf_Alumno.lbl_carrera.Text = reader.GetString(4);
-                        frm_Inf_Alumno.pic_imagen_alumno.ImageLocation = reader.GetString(5);
+                        frm_Inf_Alumno.lbl_apellidos.Text = "";
+                        frm_Inf_Alumno.lbl_carrera.Text = reader.GetString(3);
+                        frm_Inf_Alumno.pic_imagen_alumno.ImageLocation = reader.GetString(4);
                         frm_Inf_Alumno.Show();
                         principal.Hide();
                     }

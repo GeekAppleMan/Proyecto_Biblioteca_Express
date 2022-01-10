@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-01-2022 a las 19:46:12
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 10-01-2022 a las 04:30:41
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -167,6 +167,19 @@ INSERT INTO `tb_impresiones` (`id_impresiones`, `id_usuario`, `cantidad_disp`) V
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tb_libro`
+--
+
+CREATE TABLE `tb_libro` (
+  `id` int(11) NOT NULL,
+  `codigo` int(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `estatus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tb_login`
 --
 
@@ -191,6 +204,20 @@ CREATE TABLE `tb_login` (
 
 INSERT INTO `tb_login` (`id_usuario`, `usuario`, `password`, `passw`, `id_privilegio`, `activacion`, `correo`, `id_empleado`, `last_session`, `token`, `token_password`, `password_request`) VALUES
 (1, '6319991985', '$2y$10$EcB1JaCB7iqH83RFMN4Uv.hOOQaBpJXsCXu0VdgxdVVG7si65OWW2', '1997', 1, 1, NULL, 1, '2021-11-24 09:23:40', '20be2528103c9275ee0bba4e6e05849e', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tb_prestamos`
+--
+
+CREATE TABLE `tb_prestamos` (
+  `id_prestamo` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_libro` int(255) NOT NULL,
+  `fecha_salida` varchar(255) NOT NULL,
+  `fecha_devolucion` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -373,6 +400,12 @@ ALTER TABLE `tb_impresiones`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
+-- Indices de la tabla `tb_libro`
+--
+ALTER TABLE `tb_libro`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `tb_login`
 --
 ALTER TABLE `tb_login`
@@ -380,6 +413,12 @@ ALTER TABLE `tb_login`
   ADD UNIQUE KEY `user` (`usuario`),
   ADD KEY `id_privilegio` (`id_privilegio`),
   ADD KEY `tb_login_ibfk_2` (`id_empleado`);
+
+--
+-- Indices de la tabla `tb_prestamos`
+--
+ALTER TABLE `tb_prestamos`
+  ADD PRIMARY KEY (`id_prestamo`);
 
 --
 -- Indices de la tabla `tb_puesto`
@@ -459,10 +498,22 @@ ALTER TABLE `tb_impresiones`
   MODIFY `id_impresiones` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `tb_libro`
+--
+ALTER TABLE `tb_libro`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tb_login`
 --
 ALTER TABLE `tb_login`
   MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
+--
+-- AUTO_INCREMENT de la tabla `tb_prestamos`
+--
+ALTER TABLE `tb_prestamos`
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_puesto`
