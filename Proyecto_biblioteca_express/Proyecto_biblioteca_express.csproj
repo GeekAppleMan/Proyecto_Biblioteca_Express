@@ -119,6 +119,12 @@
     <Compile Include="Libro\Frm_escanear_libro.Designer.cs">
       <DependentUpon>Frm_escanear_libro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Principal\Frm_registrar_libro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Frm_registrar_libro.Designer.cs">
+      <DependentUpon>Frm_registrar_libro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alumno\Frm_inf_alumno.resx">
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alumno\Frm_escanear_matricula_alumno.resx">
       <DependentUpon>Frm_escanear_matricula_alumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Frm_registrar_libro.resx">
+      <DependentUpon>Frm_registrar_libro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

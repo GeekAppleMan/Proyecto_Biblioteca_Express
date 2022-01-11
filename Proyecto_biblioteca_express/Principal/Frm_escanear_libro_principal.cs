@@ -49,5 +49,12 @@ namespace Proyecto_biblioteca_express
         {
             Application.Exit();
         }
+
+        private void registrarLibroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Principal.Frm_registrar_libro frm_Registrar_Libro = new Principal.Frm_registrar_libro();
+            frm_Registrar_Libro.ShowDialog();
+            
+        }
     }
 }
