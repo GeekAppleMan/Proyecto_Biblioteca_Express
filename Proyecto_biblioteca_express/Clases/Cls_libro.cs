@@ -55,7 +55,7 @@ namespace Proyecto_biblioteca_express
                                 obj.ShowDialog();
                                 if (Frm_escanear_matricula_alumno.escaneo == true)
                                 {
-                                    devolver_libro(reader.GetString(1), reader.GetString(0));
+                                    devolver_libro(reader.GetString(1), reader.GetString(0),codigo);
                                 }
                                 else
                                 {
@@ -152,7 +152,7 @@ namespace Proyecto_biblioteca_express
                             if (dialogResult == DialogResult.Yes)
                             {
                                devolver_libro_2 = true;
-                               devolver_libro(reader.GetString(1), reader.GetString(0));
+                               devolver_libro(reader.GetString(1), reader.GetString(0),codigo);
                                Frm_escanear_libro.verificar = true;
                                principal.Close();
                             }
@@ -266,6 +266,10 @@ namespace Proyecto_biblioteca_express
             }
            
         }
+
+
+        Cls_bitacora obj_bitacora = new Cls_bitacora();//-------------------------------------------------------------------------------------------------------------------------------
+
         public void registrar_pedido(DataGridView pedidosdgv)
         {
             try
@@ -281,6 +285,8 @@ namespace Proyecto_biblioteca_express
                     databaseConnection.Open();
                     reader = commandDatabase.ExecuteReader();
                     cambiar_estatus_libro(pedidosdgv[1, i].Value.ToString()); //cambiar estado de disponibilidad de los libros
+                    
+                    obj_bitacora.Registrar_bitacora(pedidosdgv[2, i].Value.ToString(), pedidosdgv[0, i].Value.ToString(),1);
                 }
                 MessageBox.Show("Se registro el pedido");
                 pedidosdgv.Rows.Clear();
@@ -311,7 +317,7 @@ namespace Proyecto_biblioteca_express
           
         }
 
-        public void renovar_libro(string fecha_de_devolucion, string id_prestamo)
+        public void renovar_libro(string fecha_de_devolucion, string id_prestamo,string codigo)
         {
             try
             {
@@ -324,6 +330,7 @@ namespace Proyecto_biblioteca_express
                 MySqlDataReader reader;
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
+                obj_bitacora.Registrar_bitacora(codigo, Cls_alumno.id_alumno.ToString(), 3);
                 MessageBox.Show("Se renovo el libro");
             }
             catch (Exception)
@@ -333,7 +340,7 @@ namespace Proyecto_biblioteca_express
             
         }
 
-        public void devolver_libro(string id_libro,string id_prestamo)
+        public void devolver_libro(string id_libro,string id_prestamo,string codigo)
         {
             try
             {
@@ -346,7 +353,7 @@ namespace Proyecto_biblioteca_express
                 reader = commandDatabase.ExecuteReader();
 
                 eliminar_libro_prestamo(id_prestamo);
-
+                obj_bitacora.Registrar_bitacora(codigo, Cls_alumno.id_alumno.ToString(), 2);
                 MessageBox.Show("Se devolvio el libro");
             }
             catch (Exception)

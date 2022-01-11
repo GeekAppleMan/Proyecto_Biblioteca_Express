@@ -88,6 +88,7 @@
     <Compile Include="Clases\Cls_libro.cs" />
     <Compile Include="Clases\Cls_alumno.cs" />
     <Compile Include="Clases\Cls_conexion.cs" />
+    <Compile Include="Clases\Cls_bitacora.cs" />
     <Compile Include="Principal\Frm_escanear_libro_principal.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -70,7 +70,7 @@ namespace Proyecto_biblioteca_express
                     DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere renovar?", "ALERTA", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        obj_libro.renovar_libro(dgv_prestamos[5, e.RowIndex].Value.ToString(), dgv_prestamos[0,e.RowIndex].Value.ToString());
+                        obj_libro.renovar_libro(dgv_prestamos[5, e.RowIndex].Value.ToString(), dgv_prestamos[0,e.RowIndex].Value.ToString(),dgv_prestamos[2,e.RowIndex].Value.ToString());
                         cargar_prestamos();
                     }
                     else if (dialogResult == DialogResult.No)
