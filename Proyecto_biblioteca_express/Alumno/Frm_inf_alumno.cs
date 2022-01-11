@@ -36,8 +36,8 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_inf_alumno_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Frm_escanear_libro_principal obj_alumno = new Frm_escanear_libro_principal();
-            obj_alumno.Show();
+            new Frm_escanear_matricula_alumno().Close();
+            new Frm_escanear_libro_principal().Show();
             dgv_prestamos.Rows.Clear();
         }
 
@@ -85,8 +85,7 @@ namespace Proyecto_biblioteca_express
         private void btn_agregar_Click_1(object sender, EventArgs e)
         {
             Frm_escanear_libro.dgv = dgv_pedidos;
-            Frm_escanear_libro obj_escanear_libro = new Frm_escanear_libro();
-            obj_escanear_libro.ShowDialog();
+            new Frm_escanear_libro().ShowDialog();
             if (Frm_escanear_libro.verificar == true)
             {
                 obj_libro.agregar_libro(dgv_pedidos, Cls_libro.codigo_libro);

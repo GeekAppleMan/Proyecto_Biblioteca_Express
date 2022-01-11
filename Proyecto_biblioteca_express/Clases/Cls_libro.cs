@@ -38,8 +38,7 @@ namespace Proyecto_biblioteca_express
                             codigo_libro = codigo;
                             Frm_escanear_libro.verificar = true;
                             principal.Hide();
-                            Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
-                            obj.Show();
+                            new Frm_escanear_matricula_alumno().Show();
                         }
                         if (reader.GetString(2) == "2")
                         {
@@ -88,8 +87,7 @@ namespace Proyecto_biblioteca_express
                                     devolver_libro_2 = false;
                                     codigo_libro = codigo;
                                     Frm_escanear_libro.verificar = true;
-                                    Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
-                                    obj.Show();
+                                    new Frm_escanear_matricula_alumno().Show();
                                     principal.Hide();
                                 }
                                 if (reader.GetString(1) == "2")
@@ -139,8 +137,7 @@ namespace Proyecto_biblioteca_express
                             codigo_libro = codigo;
                             Frm_escanear_libro.verificar = true;
                             principal.Hide();
-                            Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
-                            obj.Show();
+                            new Frm_escanear_matricula_alumno().Show();
                         }
                         if (reader.GetString(2) == "2")
                         {
@@ -182,8 +179,7 @@ namespace Proyecto_biblioteca_express
                                     devolver_libro_2 = false;
                                     codigo_libro = codigo;
                                     Frm_escanear_libro.verificar = true;
-                                    Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
-                                    obj.Show();
+                                    new Frm_escanear_matricula_alumno().Show();
                                     principal.Hide();
                                 }
                                 if (reader.GetString(1) == "2")
