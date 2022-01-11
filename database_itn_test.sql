@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-01-2022 a las 20:48:32
+-- Tiempo de generación: 11-01-2022 a las 18:54:26
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.25
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `database_itn_test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tb_bitacora`
+--
+
+CREATE TABLE `tb_bitacora` (
+  `codigo` varchar(255) NOT NULL,
+  `usuario` int(11) NOT NULL,
+  `fecha` varchar(255) NOT NULL,
+  `concepto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tb_bitacora`
+--
+
+INSERT INTO `tb_bitacora` (`codigo`, `usuario`, `fecha`, `concepto`) VALUES
+('1', 1, '11/01/2022', 2),
+('1', 6, '11/01/2022', 1),
+('1', 6, '11/01/2022', 3),
+('1', 6, '11/01/2022', 2),
+('789', 1, '11/01/2022', 1),
+('456', 1, '11/01/2022', 1),
+('123', 1, '11/01/2022', 1),
+('123', 1, '11/01/2022', 3),
+('123', 1, '11/01/2022', 2),
+('456', 1, '11/01/2022', 2),
+('456', 1, '11/01/2022', 1);
 
 -- --------------------------------------------------------
 
@@ -48,6 +78,27 @@ INSERT INTO `tb_carrera` (`id_carrera`, `carrera`) VALUES
 (9, 'MAESTRIA EN URBANISMO'),
 (10, 'MAESTRIA EN SISTEMAS COMPUTACIONALES'),
 (11, 'N/A');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tb_concepto`
+--
+
+CREATE TABLE `tb_concepto` (
+  `id_concepto` int(11) NOT NULL,
+  `tipo_concepto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tb_concepto`
+--
+
+INSERT INTO `tb_concepto` (`id_concepto`, `tipo_concepto`) VALUES
+(1, 'salida'),
+(2, 'devolucion'),
+(3, 'renovacion'),
+(4, 'registro');
 
 -- --------------------------------------------------------
 
@@ -182,7 +233,9 @@ CREATE TABLE `tb_libro` (
 --
 
 INSERT INTO `tb_libro` (`id_libro`, `codigo`, `nombre`, `estatus`) VALUES
-(1, 1, 'machupichu', 2);
+(1, 123, 'machupichu', 1),
+(2, 456, 'la loca', 2),
+(3, 789, 'ñeñe', 2);
 
 -- --------------------------------------------------------
 
@@ -231,7 +284,8 @@ CREATE TABLE `tb_prestamos` (
 --
 
 INSERT INTO `tb_prestamos` (`id_prestamo`, `id_alumno`, `id_libro`, `fecha_salida`, `fecha_devolucion`) VALUES
-(4, 1, 1, '10/01/2022', '13/01/2022');
+(7, 1, 3, '11/01/2022', '14/01/2022'),
+(10, 1, 2, '11/01/2022', '14/01/2022');
 
 -- --------------------------------------------------------
 
@@ -386,6 +440,12 @@ ALTER TABLE `tb_carrera`
   ADD PRIMARY KEY (`id_carrera`);
 
 --
+-- Indices de la tabla `tb_concepto`
+--
+ALTER TABLE `tb_concepto`
+  ADD PRIMARY KEY (`id_concepto`);
+
+--
 -- Indices de la tabla `tb_conexion`
 --
 ALTER TABLE `tb_conexion`
@@ -485,6 +545,12 @@ ALTER TABLE `tb_carrera`
   MODIFY `id_carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `tb_concepto`
+--
+ALTER TABLE `tb_concepto`
+  MODIFY `id_concepto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `tb_conexion`
 --
 ALTER TABLE `tb_conexion`
@@ -518,7 +584,7 @@ ALTER TABLE `tb_impresiones`
 -- AUTO_INCREMENT de la tabla `tb_libro`
 --
 ALTER TABLE `tb_libro`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_login`
@@ -530,7 +596,7 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT de la tabla `tb_prestamos`
 --
 ALTER TABLE `tb_prestamos`
-  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_puesto`
