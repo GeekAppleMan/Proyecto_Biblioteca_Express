@@ -49,5 +49,10 @@ namespace Proyecto_biblioteca_express
         {
             Application.Exit();
         }
+
+        private void Frm_escanear_libro_principal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

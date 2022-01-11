@@ -45,8 +45,7 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_escanear_matricula_alumno_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Frm_escanear_libro_principal obj = new Frm_escanear_libro_principal();
-            obj.Show();
+            new Frm_escanear_libro_principal().Show();
         }
 
         private void btn_cancelar_Click_1(object sender, EventArgs e)
