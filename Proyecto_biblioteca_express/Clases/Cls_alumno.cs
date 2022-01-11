@@ -17,6 +17,7 @@ namespace Proyecto_biblioteca_express
         {
             try
             {
+                Frm_escanear_matricula_alumno.escaneo = false;
                 string query = "SELECT A.id_usuario,A.no_control,A.nombre,A.apellido_p,A.apellido_m,C.carrera,A.foto_perfil FROM tb_usuarios AS A INNER JOIN tb_carrera AS C ON A.id_carrera = C.id_carrera WHERE A.no_control = '" + matricula + "'";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -30,15 +31,25 @@ namespace Proyecto_biblioteca_express
                 {
                     if (reader.Read())
                     {
-                        Frm_inf_alumno frm_Inf_Alumno = new Frm_inf_alumno();
-                        id_alumno = Convert.ToInt32(reader.GetString(0));
-                        frm_Inf_Alumno.lbl_numero_control.Text = reader.GetString(1);
-                        frm_Inf_Alumno.lbl_nombres.Text = reader.GetString(2);
-                        frm_Inf_Alumno.lbl_apellidos.Text = reader.GetString(3)+" "+ reader.GetString(4);
-                        frm_Inf_Alumno.lbl_carrera.Text = reader.GetString(5);
-                        frm_Inf_Alumno.pic_imagen_alumno.ImageLocation = reader.GetString(6);
-                        frm_Inf_Alumno.Show();
-                        principal.Hide();
+                        if (Cls_libro.devolver_libro_2 == true)
+                        {
+                            Frm_escanear_matricula_alumno.escaneo = true;
+                            id_alumno = Convert.ToInt32(reader.GetString(0));
+                            principal.Close();
+                        }
+                        if (Cls_libro.devolver_libro_2 == false)
+                        {
+                            Frm_escanear_matricula_alumno.escaneo = false;
+                            Frm_inf_alumno frm_Inf_Alumno = new Frm_inf_alumno();
+                            id_alumno = Convert.ToInt32(reader.GetString(0));
+                            frm_Inf_Alumno.lbl_numero_control.Text = reader.GetString(1);
+                            frm_Inf_Alumno.lbl_nombres.Text = reader.GetString(2);
+                            frm_Inf_Alumno.lbl_apellidos.Text = reader.GetString(3) + " " + reader.GetString(4);
+                            frm_Inf_Alumno.lbl_carrera.Text = reader.GetString(5);
+                            frm_Inf_Alumno.pic_imagen_alumno.ImageLocation = reader.GetString(6);
+                            frm_Inf_Alumno.Show();
+                            principal.Hide();
+                        }  
                     }
                 }
                 else

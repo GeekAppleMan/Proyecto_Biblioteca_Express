@@ -23,6 +23,9 @@ namespace Proyecto_biblioteca_express
         private void Frm_inf_alumno_Load(object sender, EventArgs e)
         {
             cargar_prestamos();
+            Frm_escanear_libro.dgv = dgv_pedidos;
+            obj_libro.agregar_libro(dgv_pedidos, Cls_libro.codigo_libro);
+            Frm_escanear_libro.verificar = false;
         }
 
         private void cargar_prestamos()
@@ -33,7 +36,7 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_inf_alumno_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Frm_escanear_matricula_alumno obj_alumno = new Frm_escanear_matricula_alumno();
+            Frm_escanear_libro_principal obj_alumno = new Frm_escanear_libro_principal();
             obj_alumno.Show();
             dgv_prestamos.Rows.Clear();
         }
@@ -76,25 +79,6 @@ namespace Proyecto_biblioteca_express
                     }
                    
                 }
-                if (e.ColumnIndex == 7)
-                {
-                    DialogResult dialogResult = MessageBox.Show("¿Seguro que quiere regresar el libro?", "ALERTA", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        Frm_regresar_libro.codigo = dgv_prestamos[2, e.RowIndex].Value.ToString();
-                        obj_regresar.ShowDialog();
-                        if (Frm_regresar_libro.verificar_libro == true)
-                        {
-                            obj_libro.devolver_libro(dgv_prestamos[1,e.RowIndex].Value.ToString(), dgv_prestamos[0, e.RowIndex].Value.ToString());
-                        }
-                        cargar_prestamos();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        
-                    }
-                  
-                }
             }
         }
 
@@ -108,6 +92,7 @@ namespace Proyecto_biblioteca_express
                 obj_libro.agregar_libro(dgv_pedidos, Cls_libro.codigo_libro);
             }
             Frm_escanear_libro.verificar = false;
+            cargar_prestamos();
         }
 
         private void btn_registrar_pedido_Click_1(object sender, EventArgs e)

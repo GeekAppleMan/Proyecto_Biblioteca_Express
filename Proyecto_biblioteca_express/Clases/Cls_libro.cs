@@ -13,11 +13,12 @@ namespace Proyecto_biblioteca_express
     class Cls_libro : Cls_conexion
     {
         public static string codigo_libro { get; set; }
-        public void verif_Libro(string codigo, Form principal)
+        public static bool devolver_libro_2 { get; set; }
+        public void verif_Libro(string codigo, Form principal, int verificar)
         {
             try
             {
-                string query = "SELECT * FROM tb_libro WHERE codigo = '" + codigo + "'" + "AND estatus = '1'";
+                string query = "SELECT p.id_prestamo,l.id_libro,l.estatus FROM `tb_prestamos` AS p INNER JOIN tb_libro AS l ON p.id_libro = l.id_libro WHERE l.codigo = " + "'" + codigo + "'";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
@@ -26,22 +27,203 @@ namespace Proyecto_biblioteca_express
 
                 reader = commandDatabase.ExecuteReader();
 
-               
-                if (reader.Read())
+
+                if (verificar == 1)
                 {
-                    codigo_libro = codigo;
-                    Frm_escanear_libro.verificar = true;
-                    principal.Close();
+                    if (reader.Read())
+                    {
+                        if (reader.GetString(2) == "1")
+                        {
+                            devolver_libro_2 = false;
+                            codigo_libro = codigo;
+                            Frm_escanear_libro.verificar = true;
+                            principal.Hide();
+                            Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
+                            obj.Show();
+                        }
+                        if (reader.GetString(2) == "2")
+                        {
+                            codigo_libro = codigo;
+                            Frm_escanear_libro.verificar = false;
+                            //message box si quiere regresar libro
+                            DialogResult dialogResult = MessageBox.Show("¿El libro se encuentra prestado desea regresarlo?", "ALERTA", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                devolver_libro_2 = true;
+                                Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
+                                principal.Hide();
+                                obj.ShowDialog();
+                                if (Frm_escanear_matricula_alumno.escaneo == true)
+                                {
+                                    devolver_libro(reader.GetString(1), reader.GetString(0));
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se podra devolver el libro si no se verifica el alumno");
+                                }
+
+                            }
+                            else if (dialogResult == DialogResult.No)
+                            {
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        databaseConnection.Close();
+                        query = "SELECT id_libro,estatus FROM tb_libro WHERE codigo = " + "'" + codigo + "'";
+                        databaseConnection = new MySqlConnection(connectionString);
+                        commandDatabase = new MySqlCommand(query, databaseConnection);
+                        commandDatabase.CommandTimeout = 60;
+                        databaseConnection.Open();
+
+                        reader = commandDatabase.ExecuteReader();
+                        if (verificar == 1)
+                        {
+                            if (reader.Read())
+                            {
+                                if (reader.GetString(1) == "1")
+                                {
+                                    devolver_libro_2 = false;
+                                    codigo_libro = codigo;
+                                    Frm_escanear_libro.verificar = true;
+                                    Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
+                                    obj.Show();
+                                    principal.Hide();
+                                }
+                                if (reader.GetString(1) == "2")
+                                {
+                                    Frm_escanear_libro.verificar = false;
+                                    MessageBox.Show("libro prestado");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("El libro no esta registrado en la biblioteca");
+                            }
+                        }
+                        if (verificar == 2)
+                        {
+                            if (reader.Read())
+                            {
+                                if (reader.GetString(1) == "1")
+                                {
+                                    codigo_libro = codigo;
+                                    Frm_escanear_libro.verificar = true;
+                                    principal.Close();
+                                }
+                                if (reader.GetString(1) == "2")
+                                {
+                                    codigo_libro = codigo;
+                                    Frm_escanear_libro.verificar = false;
+                                    principal.Close();
+                                }
+
+                            }
+                            else
+                            {
+
+                                Frm_escanear_libro.verificar = false;
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El libro no se encuentra en la biblioteca");
-                    Frm_escanear_libro.verificar = false;
+                    if (reader.Read())
+                    {
+                        if (reader.GetString(2) == "1")
+                        {
+                            devolver_libro_2 = false;
+                            codigo_libro = codigo;
+                            Frm_escanear_libro.verificar = true;
+                            principal.Hide();
+                            Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
+                            obj.Show();
+                        }
+                        if (reader.GetString(2) == "2")
+                        {
+                            codigo_libro = codigo;
+                            Frm_escanear_libro.verificar = false;
+                            
+                            //message box si quiere regresar libro
+                            DialogResult dialogResult = MessageBox.Show("¿El libro se encuentra prestado desea regresarlo?", "ALERTA", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                               devolver_libro_2 = true;
+                               devolver_libro(reader.GetString(1), reader.GetString(0));
+                               Frm_escanear_libro.verificar = true;
+                               principal.Close();
+                            }
+                            else if (dialogResult == DialogResult.No)
+                            {
+
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        databaseConnection.Close();
+                        query = "SELECT id_libro,estatus FROM tb_libro WHERE codigo = " + "'" + codigo + "'";
+                        databaseConnection = new MySqlConnection(connectionString);
+                        commandDatabase = new MySqlCommand(query, databaseConnection);
+                        commandDatabase.CommandTimeout = 60;
+                        databaseConnection.Open();
+
+                        reader = commandDatabase.ExecuteReader();
+                        if (verificar == 1)
+                        {
+                            if (reader.Read())
+                            {
+                                if (reader.GetString(1) == "1")
+                                {
+                                    devolver_libro_2 = false;
+                                    codigo_libro = codigo;
+                                    Frm_escanear_libro.verificar = true;
+                                    Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
+                                    obj.Show();
+                                    principal.Hide();
+                                }
+                                if (reader.GetString(1) == "2")
+                                {
+                                    Frm_escanear_libro.verificar = false;
+                                    MessageBox.Show("libro prestado");
+                                }
+                            }
+                        }
+                        if (verificar == 2)
+                        {
+                            if (reader.Read())
+                            {
+                                if (reader.GetString(1) == "1")
+                                {
+                                    codigo_libro = codigo;
+                                    Frm_escanear_libro.verificar = true;
+                                    principal.Close();
+                                }
+                                if (reader.GetString(1) == "2")
+                                {
+                                    codigo_libro = codigo;
+                                    Frm_escanear_libro.verificar = false;
+                                    principal.Close();
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("El libro no esta registrado en la biblioteca");
+                            }
+                        }
+                    }
                 }
+               
+               
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
+                
             }
            
         }

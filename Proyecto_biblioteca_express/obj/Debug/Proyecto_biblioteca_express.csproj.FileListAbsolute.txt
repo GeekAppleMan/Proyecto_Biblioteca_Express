@@ -100,3 +100,4 @@ C:\Users\ramse\OneDrive\Escritorio\github\Proyecto_Biblioteca_Express\Proyecto_b
 C:\Users\ramse\OneDrive\Escritorio\github\Proyecto_Biblioteca_Express\Proyecto_biblioteca_express\obj\Debug\Proyecto_biblioteca_express.csproj.CopyComplete
 C:\Users\ramse\OneDrive\Escritorio\github\Proyecto_Biblioteca_Express\Proyecto_biblioteca_express\obj\Debug\Proyecto_biblioteca_express.exe
 C:\Users\ramse\OneDrive\Escritorio\github\Proyecto_Biblioteca_Express\Proyecto_biblioteca_express\obj\Debug\Proyecto_biblioteca_express.pdb
+C:\Users\Jaime\Desktop\Git_hub_biblioteca_express\Proyecto_Biblioteca_Express\Proyecto_biblioteca_express\obj\Debug\Proyecto_biblioteca_express.Frm_escanear_libro_principal.resources

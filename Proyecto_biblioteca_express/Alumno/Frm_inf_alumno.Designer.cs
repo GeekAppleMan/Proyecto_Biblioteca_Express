@@ -42,14 +42,6 @@ namespace Proyecto_biblioteca_express
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.gbx_prestamos = new System.Windows.Forms.GroupBox();
             this.dgv_prestamos = new System.Windows.Forms.DataGridView();
-            this.id_prestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_devolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Renovar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Devolver = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.btn_registrar_pedido = new System.Windows.Forms.Button();
@@ -65,6 +57,13 @@ namespace Proyecto_biblioteca_express
             this.lbl_carrera = new System.Windows.Forms.Label();
             this.lbl_numero_control = new System.Windows.Forms.Label();
             this.panel_datos_alumno = new System.Windows.Forms.Panel();
+            this.id_prestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_devolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Renovar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_prestamos_pedidos_botones.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.gbx_pedidos.SuspendLayout();
@@ -227,8 +226,7 @@ namespace Proyecto_biblioteca_express
             this.Libro,
             this.Fecha_salida,
             this.Fecha_devolucion,
-            this.Renovar,
-            this.Devolver});
+            this.Renovar});
             this.dgv_prestamos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_prestamos.Location = new System.Drawing.Point(2, 17);
             this.dgv_prestamos.Margin = new System.Windows.Forms.Padding(2);
@@ -240,68 +238,6 @@ namespace Proyecto_biblioteca_express
             this.dgv_prestamos.Size = new System.Drawing.Size(788, 211);
             this.dgv_prestamos.TabIndex = 0;
             this.dgv_prestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_prestamos_CellClick);
-            // 
-            // id_prestamo
-            // 
-            this.id_prestamo.HeaderText = "id_prestamo";
-            this.id_prestamo.MinimumWidth = 6;
-            this.id_prestamo.Name = "id_prestamo";
-            this.id_prestamo.ReadOnly = true;
-            this.id_prestamo.Visible = false;
-            // 
-            // id_libro
-            // 
-            this.id_libro.HeaderText = "id_libro";
-            this.id_libro.MinimumWidth = 6;
-            this.id_libro.Name = "id_libro";
-            this.id_libro.ReadOnly = true;
-            this.id_libro.Visible = false;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Libro
-            // 
-            this.Libro.HeaderText = "Libro";
-            this.Libro.MinimumWidth = 6;
-            this.Libro.Name = "Libro";
-            this.Libro.ReadOnly = true;
-            // 
-            // Fecha_salida
-            // 
-            this.Fecha_salida.HeaderText = "Fecha de salida";
-            this.Fecha_salida.MinimumWidth = 6;
-            this.Fecha_salida.Name = "Fecha_salida";
-            this.Fecha_salida.ReadOnly = true;
-            // 
-            // Fecha_devolucion
-            // 
-            this.Fecha_devolucion.HeaderText = "Fecha de devolucion";
-            this.Fecha_devolucion.MinimumWidth = 6;
-            this.Fecha_devolucion.Name = "Fecha_devolucion";
-            this.Fecha_devolucion.ReadOnly = true;
-            // 
-            // Renovar
-            // 
-            this.Renovar.HeaderText = "Renovar";
-            this.Renovar.Image = global::Proyecto_biblioteca_express.Properties.Resources.agregar;
-            this.Renovar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Renovar.MinimumWidth = 6;
-            this.Renovar.Name = "Renovar";
-            this.Renovar.ReadOnly = true;
-            // 
-            // Devolver
-            // 
-            this.Devolver.HeaderText = "Devolver";
-            this.Devolver.Image = global::Proyecto_biblioteca_express.Properties.Resources.atras;
-            this.Devolver.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Devolver.MinimumWidth = 6;
-            this.Devolver.Name = "Devolver";
-            this.Devolver.ReadOnly = true;
             // 
             // tableLayoutPanel1
             // 
@@ -486,6 +422,59 @@ namespace Proyecto_biblioteca_express
             this.panel_datos_alumno.Size = new System.Drawing.Size(796, 184);
             this.panel_datos_alumno.TabIndex = 0;
             // 
+            // id_prestamo
+            // 
+            this.id_prestamo.HeaderText = "id_prestamo";
+            this.id_prestamo.MinimumWidth = 6;
+            this.id_prestamo.Name = "id_prestamo";
+            this.id_prestamo.ReadOnly = true;
+            this.id_prestamo.Visible = false;
+            // 
+            // id_libro
+            // 
+            this.id_libro.HeaderText = "id_libro";
+            this.id_libro.MinimumWidth = 6;
+            this.id_libro.Name = "id_libro";
+            this.id_libro.ReadOnly = true;
+            this.id_libro.Visible = false;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Libro
+            // 
+            this.Libro.HeaderText = "Libro";
+            this.Libro.MinimumWidth = 6;
+            this.Libro.Name = "Libro";
+            this.Libro.ReadOnly = true;
+            // 
+            // Fecha_salida
+            // 
+            this.Fecha_salida.HeaderText = "Fecha de salida";
+            this.Fecha_salida.MinimumWidth = 6;
+            this.Fecha_salida.Name = "Fecha_salida";
+            this.Fecha_salida.ReadOnly = true;
+            // 
+            // Fecha_devolucion
+            // 
+            this.Fecha_devolucion.HeaderText = "Fecha de devolucion";
+            this.Fecha_devolucion.MinimumWidth = 6;
+            this.Fecha_devolucion.Name = "Fecha_devolucion";
+            this.Fecha_devolucion.ReadOnly = true;
+            // 
+            // Renovar
+            // 
+            this.Renovar.HeaderText = "Renovar";
+            this.Renovar.Image = global::Proyecto_biblioteca_express.Properties.Resources.agregar;
+            this.Renovar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Renovar.MinimumWidth = 6;
+            this.Renovar.Name = "Renovar";
+            this.Renovar.ReadOnly = true;
+            // 
             // Frm_inf_alumno
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -552,6 +541,5 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_devolucion;
         private System.Windows.Forms.DataGridViewImageColumn Renovar;
-        private System.Windows.Forms.DataGridViewImageColumn Devolver;
     }
 }

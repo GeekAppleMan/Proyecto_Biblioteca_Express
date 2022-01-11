@@ -88,16 +88,22 @@
     <Compile Include="Clases\Cls_libro.cs" />
     <Compile Include="Clases\Cls_alumno.cs" />
     <Compile Include="Clases\Cls_conexion.cs" />
+    <Compile Include="Principal\Frm_escanear_libro_principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Frm_escanear_libro_principal.Designer.cs">
+      <DependentUpon>Frm_escanear_libro_principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Libro\Frm_regresar_libro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Libro\Frm_regresar_libro.Designer.cs">
       <DependentUpon>Frm_regresar_libro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal\Frm_escanear_matricula_alumno.cs">
+    <Compile Include="Alumno\Frm_escanear_matricula_alumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal\Frm_escanear_matricula_alumno.Designer.cs">
+    <Compile Include="Alumno\Frm_escanear_matricula_alumno.Designer.cs">
       <DependentUpon>Frm_escanear_matricula_alumno.cs</DependentUpon>
     </Compile>
     <Compile Include="Alumno\Frm_inf_alumno.cs">
@@ -117,13 +123,16 @@
     <EmbeddedResource Include="Alumno\Frm_inf_alumno.resx">
       <DependentUpon>Frm_inf_alumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Frm_escanear_libro_principal.resx">
+      <DependentUpon>Frm_escanear_libro_principal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Libro\Frm_escanear_libro.resx">
       <DependentUpon>Frm_escanear_libro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Libro\Frm_regresar_libro.resx">
       <DependentUpon>Frm_regresar_libro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal\Frm_escanear_matricula_alumno.resx">
+    <EmbeddedResource Include="Alumno\Frm_escanear_matricula_alumno.resx">
       <DependentUpon>Frm_escanear_matricula_alumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

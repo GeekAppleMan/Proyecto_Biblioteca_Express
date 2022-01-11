@@ -49,7 +49,7 @@ namespace Proyecto_biblioteca_express
                 }
                 else
                 {
-                    obj_libro.verif_Libro(txtCodigo.Text, this);
+                    obj_libro.verif_Libro(txtCodigo.Text, this,2);
                 }
                 comprobar = false;
             }

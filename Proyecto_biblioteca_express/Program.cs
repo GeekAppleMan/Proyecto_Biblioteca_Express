@@ -16,7 +16,7 @@ namespace Proyecto_biblioteca_express
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_escanear_matricula_alumno());
+            Application.Run(new Frm_escanear_libro_principal());
         }
     }
 }
