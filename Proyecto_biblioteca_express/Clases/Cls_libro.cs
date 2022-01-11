@@ -49,9 +49,8 @@ namespace Proyecto_biblioteca_express
                             if (dialogResult == DialogResult.Yes)
                             {
                                 devolver_libro_2 = true;
-                                Frm_escanear_matricula_alumno obj = new Frm_escanear_matricula_alumno();
                                 principal.Hide();
-                                obj.ShowDialog();
+                                new Frm_escanear_matricula_alumno().ShowDialog();
                                 if (Frm_escanear_matricula_alumno.escaneo == true)
                                 {
                                     devolver_libro(reader.GetString(1), reader.GetString(0),codigo);
