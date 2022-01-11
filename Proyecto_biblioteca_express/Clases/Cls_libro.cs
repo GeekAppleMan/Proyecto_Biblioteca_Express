@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Proyecto_biblioteca_express
 {
-   
+
     class Cls_libro : Cls_conexion
     {
         public static string codigo_libro { get; set; }
@@ -54,7 +54,7 @@ namespace Proyecto_biblioteca_express
                                 obj.ShowDialog();
                                 if (Frm_escanear_matricula_alumno.escaneo == true)
                                 {
-                                    devolver_libro(reader.GetString(1), reader.GetString(0),codigo);
+                                    devolver_libro(reader.GetString(1), reader.GetString(0), codigo);
                                 }
                                 else
                                 {
@@ -143,15 +143,15 @@ namespace Proyecto_biblioteca_express
                         {
                             codigo_libro = codigo;
                             Frm_escanear_libro.verificar = false;
-                            
+
                             //message box si quiere regresar libro
                             DialogResult dialogResult = MessageBox.Show("¿El libro se encuentra prestado desea regresarlo?", "ALERTA", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
-                               devolver_libro_2 = true;
-                               devolver_libro(reader.GetString(1), reader.GetString(0),codigo);
-                               Frm_escanear_libro.verificar = true;
-                               principal.Close();
+                                devolver_libro_2 = true;
+                                devolver_libro(reader.GetString(1), reader.GetString(0), codigo);
+                                Frm_escanear_libro.verificar = true;
+                                principal.Close();
                             }
                             else if (dialogResult == DialogResult.No)
                             {
@@ -214,14 +214,14 @@ namespace Proyecto_biblioteca_express
                         }
                     }
                 }
-               
-               
+
+
             }
             catch (Exception)
             {
-                
+
             }
-           
+
         }
 
         public void agregar_libro(DataGridView dgv, string codigo)
@@ -244,13 +244,13 @@ namespace Proyecto_biblioteca_express
 
                 reader = commandDatabase.ExecuteReader();
 
-               
+
                 if (reader.Read())
                 {
                     //se agrega el id del alumno, id del libro y las fechas tato de saida como de devolucion----------------
                     dgv.Rows.Add(Cls_alumno.id_alumno, reader.GetString(0), reader.GetString(1), reader.GetString(2), fecha_dev.ToString("d"));
                 }
-                
+
                 else
                 {
                     MessageBox.Show("El libro no se encuentra en la biblioteca");
@@ -260,7 +260,7 @@ namespace Proyecto_biblioteca_express
             {
                 MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
             }
-           
+
         }
 
 
@@ -281,8 +281,8 @@ namespace Proyecto_biblioteca_express
                     databaseConnection.Open();
                     reader = commandDatabase.ExecuteReader();
                     cambiar_estatus_libro(pedidosdgv[1, i].Value.ToString()); //cambiar estado de disponibilidad de los libros
-                    
-                    obj_bitacora.Registrar_bitacora(pedidosdgv[2, i].Value.ToString(), pedidosdgv[0, i].Value.ToString(),1);
+
+                    obj_bitacora.Registrar_bitacora(pedidosdgv[2, i].Value.ToString(), pedidosdgv[0, i].Value.ToString(), 1);
                 }
                 MessageBox.Show("Se registro el pedido");
                 pedidosdgv.Rows.Clear();
@@ -291,7 +291,7 @@ namespace Proyecto_biblioteca_express
             {
                 MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
             }
-           
+
         }
 
         public void cambiar_estatus_libro(string id_libro)
@@ -310,10 +310,10 @@ namespace Proyecto_biblioteca_express
             {
                 MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
             }
-          
+
         }
 
-        public void renovar_libro(string fecha_de_devolucion, string id_prestamo,string codigo)
+        public void renovar_libro(string fecha_de_devolucion, string id_prestamo, string codigo)
         {
             try
             {
@@ -333,10 +333,10 @@ namespace Proyecto_biblioteca_express
             {
                 MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
             }
-            
+
         }
 
-        public void devolver_libro(string id_libro,string id_prestamo,string codigo)
+        public void devolver_libro(string id_libro, string id_prestamo, string codigo)
         {
             try
             {
@@ -356,7 +356,7 @@ namespace Proyecto_biblioteca_express
             {
                 MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
             }
-          
+
         }
 
         public void eliminar_libro_prestamo(string id_prestamo)
@@ -375,7 +375,56 @@ namespace Proyecto_biblioteca_express
             {
                 MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
             }
-           
+
+        }
+        public void Registrar_libro(string nombre, string codigo, Form princial)
+        {
+            try
+            {
+                string query = "INSERT INTO `tb_libro`(`id_libro`, `codigo`, `nombre`, `estatus`) VALUES (NULL, '" + codigo + "', '" + nombre + "', '1');";
+                MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                commandDatabase.CommandTimeout = 60;
+                MySqlDataReader reader;
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                MessageBox.Show("El Libro Se Registro Correctamente");
+                princial.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error, comuniquese con el equipo de sistemas");
+            }
+            
+        }
+
+        public bool veriricar_codigo_libro(string codigo)
+        {
+            bool verificar = false;
+            try
+            {
+                string query = "SELECT * FROM tb_libro WHERE codigo = " + "'" + codigo + "'";
+                MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                commandDatabase.CommandTimeout = 60;
+                MySqlDataReader reader;
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                if (reader.Read())
+                {
+                    verificar = true;
+                }
+                else
+                {
+                    verificar = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error, comuniquese con el equipo de sistemas");
+            }
+            return verificar;
         }
     }
 }

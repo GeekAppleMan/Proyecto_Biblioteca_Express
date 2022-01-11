@@ -150,7 +150,7 @@ namespace Proyecto_biblioteca_express
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Escanear libro";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_escanear_libro_principal_FormClosed);
-            this.Load += new System.EventHandler(this.Frm_escanear_libro_principal_Load);
+            
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

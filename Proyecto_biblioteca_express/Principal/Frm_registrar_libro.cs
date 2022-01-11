@@ -33,12 +33,36 @@ namespace Proyecto_biblioteca_express.Principal
                 codigo += letra;
                 codigo += rdm_caracter.Next(9);
             }
-            codigo_final = codigo;
+            Cls_libro ob = new Cls_libro();
+            if (ob.veriricar_codigo_libro(codigo) == true)
+            {
+                generar_codigo();
+            }
+            else
+            {
+                codigo_final = codigo;
+            }
         }
 
         private void btn_virificar_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("¿Desea Registrar El Libro Con El Nombre "+ txtNombre.Text + "?", "ALERTA", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                
+                if (string.IsNullOrEmpty(txtNombre.Text))
+                {
+                    MessageBox.Show("Necesita Ingresar Un Nombre Para El Libro");
+                }
+                else
+                {
+                    new Cls_libro().Registrar_libro(txtNombre.Text, codigo_final,this);
+                }
 
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+            }
         }
     }
 }
