@@ -36,8 +36,7 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_inf_alumno_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new Frm_escanear_matricula_alumno().Close();
-            new Frm_escanear_libro_principal().Show();
+            Frm_escanear_matricula_alumno.frm_matricula.Close();
             dgv_prestamos.Rows.Clear();
         }
 

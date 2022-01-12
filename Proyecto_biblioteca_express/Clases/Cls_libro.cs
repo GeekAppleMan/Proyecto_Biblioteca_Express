@@ -92,7 +92,8 @@ namespace Proyecto_biblioteca_express
                                 if (reader.GetString(1) == "2")
                                 {
                                     Frm_escanear_libro.verificar = false;
-                                    MessageBox.Show("libro prestado");
+                                    cambiar_estatus_libro_2(reader.GetString(0));
+                                    verif_Libro(codigo, principal, verificar);
                                 }
                             }
                             else
@@ -120,7 +121,7 @@ namespace Proyecto_biblioteca_express
                             }
                             else
                             {
-
+                                MessageBox.Show("El libro no esta registrado en la biblioteca");
                                 Frm_escanear_libro.verificar = false;
                             }
                         }
@@ -184,7 +185,8 @@ namespace Proyecto_biblioteca_express
                                 if (reader.GetString(1) == "2")
                                 {
                                     Frm_escanear_libro.verificar = false;
-                                    MessageBox.Show("libro prestado");
+                                    cambiar_estatus_libro_2(reader.GetString(0));
+                                    verif_Libro(codigo, principal, verificar);
                                 }
                             }
                         }
@@ -200,9 +202,12 @@ namespace Proyecto_biblioteca_express
                                 }
                                 if (reader.GetString(1) == "2")
                                 {
+                                    cambiar_estatus_libro_2(reader.GetString(0));
+                                    verif_Libro(codigo, principal, verificar);
                                     codigo_libro = codigo;
-                                    Frm_escanear_libro.verificar = false;
+                                    Frm_escanear_libro.verificar = true;
                                     principal.Close();
+                                   
                                 }
 
                             }
@@ -298,6 +303,25 @@ namespace Proyecto_biblioteca_express
             try
             {
                 string query = "UPDATE `tb_libro` SET `estatus`='2' WHERE id_libro = " + "'" + id_libro + "'";
+                MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                commandDatabase.CommandTimeout = 60;
+                MySqlDataReader reader;
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un problema, comuniquese con el equipo de sistemas");
+            }
+
+        }
+
+        public void cambiar_estatus_libro_2(string id_libro)
+        {
+            try
+            {
+                string query = "UPDATE `tb_libro` SET `estatus`='1' WHERE id_libro = " + "'" + id_libro + "'";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
@@ -425,5 +449,6 @@ namespace Proyecto_biblioteca_express
             }
             return verificar;
         }
+
     }
 }

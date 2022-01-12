@@ -36,7 +36,8 @@ namespace Proyecto_biblioteca_express
             {
                 for (int i = 0; i < dgv.Rows.Count; i++)
                 {
-                    if (txtCodigo.Text == dgv[2, i].Value.ToString())
+                    string codigo = dgv[2, i].Value.ToString();
+                    if (txtCodigo.Text.ToUpper() == codigo)
                     {
                         comprobar = true;
                     }

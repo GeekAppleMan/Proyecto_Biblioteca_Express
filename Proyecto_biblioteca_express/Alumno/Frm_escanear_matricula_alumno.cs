@@ -13,9 +13,11 @@ namespace Proyecto_biblioteca_express
     public partial class Frm_escanear_matricula_alumno : Form
     {
         public static bool escaneo { get; set; }
+        public static Form frm_matricula { get; set; }
         public Frm_escanear_matricula_alumno()
         {
             InitializeComponent();
+            frm_matricula = this;
         }
 
         public void Scan()
@@ -45,7 +47,7 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_escanear_matricula_alumno_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new Frm_escanear_libro_principal().Show();
+            Frm_escanear_libro_principal.frm_principal_codigo.Show();
         }
 
         private void btn_cancelar_Click_1(object sender, EventArgs e)
