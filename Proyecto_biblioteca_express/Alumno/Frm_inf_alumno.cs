@@ -14,6 +14,7 @@ namespace Proyecto_biblioteca_express
     {
         Cls_alumno obj_prestamos = new Cls_alumno();
         Cls_libro obj_libro = new Cls_libro();
+        public static bool renovar { get; set; }
         public Frm_inf_alumno()
         {
             InitializeComponent();
@@ -21,10 +22,18 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_inf_alumno_Load(object sender, EventArgs e)
         {
-            cargar_prestamos();
-            Frm_escanear_libro.dgv = dgv_pedidos;
-            obj_libro.agregar_libro(dgv_pedidos, Cls_libro.codigo_libro);
-            Frm_escanear_libro.verificar = false;
+            if (renovar == true)
+            {
+                cargar_prestamos();
+            }
+            else
+            {
+                cargar_prestamos();
+                Frm_escanear_libro.dgv = dgv_pedidos;
+                obj_libro.agregar_libro(dgv_pedidos, Cls_libro.codigo_libro);
+                Frm_escanear_libro.verificar = false;
+            }
+            
         }
 
         private void cargar_prestamos()
@@ -35,6 +44,7 @@ namespace Proyecto_biblioteca_express
 
         private void Frm_inf_alumno_FormClosed(object sender, FormClosedEventArgs e)
         {
+            renovar = false;
             Frm_escanear_matricula_alumno.frm_matricula.Close();
             dgv_prestamos.Rows.Clear();
         }

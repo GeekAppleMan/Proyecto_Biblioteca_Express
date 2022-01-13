@@ -38,6 +38,7 @@ namespace Proyecto_biblioteca_express
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.registrarLibroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarQRDeRemlpazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renovarLibroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +46,7 @@ namespace Proyecto_biblioteca_express
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(31, 95);
+            this.panel1.Location = new System.Drawing.Point(55, 94);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(235, 1);
@@ -64,7 +65,7 @@ namespace Proyecto_biblioteca_express
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(308, 42);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(351, 42);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // btn_virificar
@@ -75,7 +76,7 @@ namespace Proyecto_biblioteca_express
             this.btn_virificar.Location = new System.Drawing.Point(2, 2);
             this.btn_virificar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_virificar.Name = "btn_virificar";
-            this.btn_virificar.Size = new System.Drawing.Size(150, 38);
+            this.btn_virificar.Size = new System.Drawing.Size(171, 38);
             this.btn_virificar.TabIndex = 6;
             this.btn_virificar.Text = "Verificar";
             this.btn_virificar.UseVisualStyleBackColor = true;
@@ -86,10 +87,10 @@ namespace Proyecto_biblioteca_express
             this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(156, 2);
+            this.btn_cancelar.Location = new System.Drawing.Point(177, 2);
             this.btn_cancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(150, 38);
+            this.btn_cancelar.Size = new System.Drawing.Size(172, 38);
             this.btn_cancelar.TabIndex = 7;
             this.btn_cancelar.Text = "Cerrar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@ namespace Proyecto_biblioteca_express
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(80, 46);
+            this.label1.Location = new System.Drawing.Point(104, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 20);
             this.label1.TabIndex = 11;
@@ -111,7 +112,7 @@ namespace Proyecto_biblioteca_express
             this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(31, 76);
+            this.txtCodigo.Location = new System.Drawing.Point(55, 75);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(235, 16);
             this.txtCodigo.TabIndex = 10;
@@ -122,10 +123,11 @@ namespace Proyecto_biblioteca_express
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarLibroToolStripMenuItem,
-            this.generarQRDeRemlpazoToolStripMenuItem});
+            this.generarQRDeRemlpazoToolStripMenuItem,
+            this.renovarLibroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(308, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(351, 24);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -143,12 +145,19 @@ namespace Proyecto_biblioteca_express
             this.generarQRDeRemlpazoToolStripMenuItem.Text = "Generar QR de reemplazo";
             this.generarQRDeRemlpazoToolStripMenuItem.Click += new System.EventHandler(this.generarQRDeRemlpazoToolStripMenuItem_Click);
             // 
+            // renovarLibroToolStripMenuItem
+            // 
+            this.renovarLibroToolStripMenuItem.Name = "renovarLibroToolStripMenuItem";
+            this.renovarLibroToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.renovarLibroToolStripMenuItem.Text = "Renovar Libro";
+            this.renovarLibroToolStripMenuItem.Click += new System.EventHandler(this.renovarLibroToolStripMenuItem_Click);
+            // 
             // Frm_escanear_libro_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(308, 188);
+            this.ClientSize = new System.Drawing.Size(351, 188);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
@@ -181,5 +190,6 @@ namespace Proyecto_biblioteca_express
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem registrarLibroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarQRDeRemlpazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renovarLibroToolStripMenuItem;
     }
 }

@@ -18,7 +18,7 @@ namespace Proyecto_biblioteca_express
         {
             try
             {
-                string query = "SELECT p.id_prestamo,l.id_libro,l.estatus FROM `tb_prestamos` AS p INNER JOIN tb_libro AS l ON p.id_libro = l.id_libro WHERE l.codigo = " + "'" + codigo + "'";
+                string query = "SELECT p.id_prestamo,l.id_libro,l.estatus,p.fecha_devolucion FROM `tb_prestamos` AS p INNER JOIN tb_libro AS l ON p.id_libro = l.id_libro WHERE l.codigo = " + "'" + codigo + "'";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
@@ -27,7 +27,7 @@ namespace Proyecto_biblioteca_express
 
                 reader = commandDatabase.ExecuteReader();
 
-
+                //1 = primera ventana, 2 = ya esta abierta la informacion del alumno , 
                 if (verificar == 1)
                 {
                     if (reader.Read())
@@ -46,6 +46,7 @@ namespace Proyecto_biblioteca_express
                             Frm_escanear_libro.verificar = false;
                             //message box si quiere regresar libro
                             DialogResult dialogResult = MessageBox.Show("¿El libro se encuentra prestado desea regresarlo?", "ALERTA", MessageBoxButtons.YesNo);
+                            
                             if (dialogResult == DialogResult.Yes)
                             {
                                 devolver_libro_2 = true;

@@ -67,5 +67,12 @@ namespace Proyecto_biblioteca_express
         {
 
         }
+
+        private void renovarLibroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_inf_alumno.renovar = true;
+            this.Hide();
+            new Frm_escanear_matricula_alumno().Show();
+        }
     }
 }
