@@ -114,6 +114,7 @@ namespace Proyecto_biblioteca_express
             this.txtCodigo.Size = new System.Drawing.Size(235, 16);
             this.txtCodigo.TabIndex = 14;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // pcbCodigoQR
             // 

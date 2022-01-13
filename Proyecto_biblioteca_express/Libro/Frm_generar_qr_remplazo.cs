@@ -26,6 +26,11 @@ namespace Proyecto_biblioteca_express
 
         private void btn_virificar_Click(object sender, EventArgs e)
         {
+            verificar();
+            
+        }
+        public void verificar()
+        {
             DialogResult dialogResult = MessageBox.Show("¿Desea generar el codigo qr?", "ALERTA", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -35,13 +40,21 @@ namespace Proyecto_biblioteca_express
                 }
                 else
                 {
-                    generar_QR(txtCodigo.Text.ToUpper());
+
+                    if (new Cls_libro().veriricar_codigo_libro(txtCodigo.Text) == true)
+                    {
+                        generar_QR(txtCodigo.Text.ToUpper());
+                    }
+                    else
+                    {
+                        MessageBox.Show("El codigo ingresado no pertenece a ningun libro en la biblioteca, intentelo de nuevo");
+                        txtCodigo.Clear();
+                    }
                 }
             }
             else if (dialogResult == DialogResult.No)
             {
             }
-            
         }
         public void generar_QR(string codigo)
         {
@@ -61,7 +74,7 @@ namespace Proyecto_biblioteca_express
             // Guardar en el disco duro la imagen (Carpeta del proyecto)
             //imagen.Save("imagen.png", ImageFormat.Png);
 
-
+            //↑↑↓↓←→←→AB
             pdImprimir = new System.Drawing.Printing.PrintDocument();
             PrinterSettings ps = new PrinterSettings();
             ps.PrinterName = "POS-58-Series";
@@ -79,6 +92,18 @@ namespace Proyecto_biblioteca_express
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                verificar();
+            }
         }
     }
 }

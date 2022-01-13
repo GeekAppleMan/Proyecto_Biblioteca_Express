@@ -14,7 +14,6 @@ namespace Proyecto_biblioteca_express
     {
         Cls_alumno obj_prestamos = new Cls_alumno();
         Cls_libro obj_libro = new Cls_libro();
-        Frm_regresar_libro obj_regresar = new Frm_regresar_libro();
         public Frm_inf_alumno()
         {
             InitializeComponent();
