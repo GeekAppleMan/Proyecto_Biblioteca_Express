@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using System.Drawing;
 
 namespace Proyecto_biblioteca_express
 {
@@ -42,6 +43,7 @@ namespace Proyecto_biblioteca_express
                             Frm_escanear_matricula_alumno.escaneo = false;
                             Frm_inf_alumno frm_Inf_Alumno = new Frm_inf_alumno();
                             id_alumno = Convert.ToInt32(reader.GetString(0));
+
                             frm_Inf_Alumno.lbl_numero_control.Text = reader.GetString(1);
                             frm_Inf_Alumno.lbl_nombres.Text = reader.GetString(2);
                             frm_Inf_Alumno.lbl_apellidos.Text = reader.GetString(3) + " " + reader.GetString(4);

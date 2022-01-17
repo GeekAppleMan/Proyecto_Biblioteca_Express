@@ -114,5 +114,20 @@ namespace Proyecto_biblioteca_express
                 cargar_prestamos();
             }
         }
+
+        private void pic_imagen_alumno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbl_nombres_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

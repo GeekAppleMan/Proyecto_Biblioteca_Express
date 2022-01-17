@@ -40,15 +40,15 @@ namespace Proyecto_biblioteca_express
             // 
             // txtMatricula
             // 
-            this.txtMatricula.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMatricula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMatricula.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMatricula.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatricula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatricula.Location = new System.Drawing.Point(20, 116);
+            this.txtMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatricula.Location = new System.Drawing.Point(21, 160);
             this.txtMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(314, 16);
+            this.txtMatricula.Size = new System.Drawing.Size(634, 31);
             this.txtMatricula.TabIndex = 0;
             this.txtMatricula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatricula_KeyPress);
@@ -57,11 +57,11 @@ namespace Proyecto_biblioteca_express
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(101, 76);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(208, 114);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 20);
+            this.label1.Size = new System.Drawing.Size(308, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Matricula del Alumno";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,44 +74,50 @@ namespace Proyecto_biblioteca_express
             this.tableLayoutPanel1.Controls.Add(this.btn_cancelar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btn_virificar, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 180);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 290);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(373, 54);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(693, 54);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // btn_cancelar
             // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.DarkRed;
             this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Location = new System.Drawing.Point(189, 3);
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_cancelar.Location = new System.Drawing.Point(349, 3);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(181, 48);
+            this.btn_cancelar.Size = new System.Drawing.Size(341, 48);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.Text = "Cerrar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click_1);
             // 
             // btn_virificar
             // 
+            this.btn_virificar.BackColor = System.Drawing.Color.DarkRed;
             this.btn_virificar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_virificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_virificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_virificar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_virificar.Location = new System.Drawing.Point(3, 3);
             this.btn_virificar.Name = "btn_virificar";
-            this.btn_virificar.Size = new System.Drawing.Size(180, 48);
+            this.btn_virificar.Size = new System.Drawing.Size(340, 48);
             this.btn_virificar.TabIndex = 4;
             this.btn_virificar.Text = "Verificar";
-            this.btn_virificar.UseVisualStyleBackColor = true;
+            this.btn_virificar.UseVisualStyleBackColor = false;
             this.btn_virificar.Click += new System.EventHandler(this.btn_virificar_Click_1);
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(20, 139);
+            this.panel1.Location = new System.Drawing.Point(20, 194);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 1);
+            this.panel1.Size = new System.Drawing.Size(634, 1);
             this.panel1.TabIndex = 3;
             // 
             // Frm_escanear_matricula_alumno
@@ -119,7 +125,7 @@ namespace Proyecto_biblioteca_express
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(373, 234);
+            this.ClientSize = new System.Drawing.Size(693, 344);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
