@@ -105,5 +105,21 @@ namespace Proyecto_biblioteca_express
                 verificar();
             }
         }
+
+        private void Frm_generar_qr_reemplazo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHepter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (txtHepter.Text == "↑↑↓↓←→←→")
+                {
+                    MessageBox.Show("helicopter helicopter xD");
+                }
+            }
+        }
     }
 }
